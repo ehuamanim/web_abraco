@@ -59,12 +59,12 @@
 
     <!-- Menu -->
     <nav
-        class="fixed flex rounded-md bg-white py-4 px-12 top-20px left-20px right-20px justify-between items-center text-sm z-40 scroll-menu transition-all duration-300"
+        class="fixed flex rounded-md bg-white py-4 px-12 top-20px left-20px right-20px justify-between items-center text-sm z-50 scroll-menu transition-all duration-300"
       >
         <img src="assets/images/logo.png" style="height: 50px" />
         <div class="flex">
           <span class="mx-4 text-primary">Inicio</span>
-          <span class="mx-4">Servicios</span>
+          <a href="servicios.html"><span class="mx-4">Servicios</span></a>
           <span class="mx-4">Proyectos</span>
           <span class="mx-4">Nosotros</span>
         </div>
@@ -80,15 +80,49 @@
           <div class="relative overflow-hidden rounded-lg md:h-full">
                <!-- Item 1 -->
               <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                  <img src="/assets/images/carousel-0.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <img src="/assets/images/carousel-2.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <div class="z-50 absolute p-12 top-0 left-0 flex justify-start items-center w-full h-full">
+                  <div class="ms-8 flex flex-col text-white w-1/4">
+                    <span class="text-primary text-5xl font-bold">Tecnolog&iacute;a avanzada</span>
+                    <span class="text-xl mt-8">Aplicamos tecnolog&iacute;a de vanguardia para ofrecer soluciones r&aacute;pidas y eficientes.</span>
+                    <div>
+                      <button class="bg-primary text-white rounded-md px-10 py-2 mt-8 button-shadow flex text-sm items-center">
+                        Ver proyectos
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
               <!-- Item 2 -->
               <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                  <img src="/assets/images/carousel-1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <img src="/assets/images/carousel-0.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <div class="z-50 absolute p-12 top-0 left-0 flex justify-end items-center w-full h-full">
+                  <div class="me-8 flex flex-col text-white w-1/4 text-end">
+                    <span class="text-primary text-5xl font-bold">Experiencia y especializaci&oacute;n</span>
+                    <span class="text-xl mt-8">La trayectoria de nuestro equipo de profesionales es la clave para dar soluciones confiables en cada proyecto.</span>
+                    <div>
+                      <button class="bg-primary text-white rounded-md px-10 py-2 mt-8 button-shadow flex text-sm items-center">
+                        Ver proyectos
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
+
               <!-- Item 3 -->
               <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                  <img src="/assets/images/carousel-2.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <img src="/assets/images/carousel-1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <div class="z-50 absolute p-12 top-0 left-0 flex justify-start items-center w-full h-full">
+                  <div class="ms-8 flex flex-col text-white w-1/4">
+                    <span class="text-primary text-5xl font-bold">Servicios personalizados</span>
+                    <span class="text-xl mt-8">Cada proyecto recibe una solución a medida, adaptada a sus necesidades específicas</span>
+                    <div>
+                      <button class="bg-primary text-white rounded-md px-10 py-2 mt-8 button-shadow flex text-sm items-center">
+                        Ver proyectos
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
           </div>
           <!-- Slider indicators -->
@@ -449,6 +483,12 @@
 
       </div>
     
+
+      <!-- Footer -->
+      <div class="bg-light px-24 flex flex-col w-full items-center justify-center py-8 text-slate-500">
+        &copy; ABRACO Ingenier&iacute;a  | Todos los derechos reservados.
+      </div>
+
     </div>
 
   </body>
