@@ -1,0 +1,278 @@
+<html>
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              primary: "#EF7F38",
+              "primary-light": "#FCECE2",
+              dark: "#3F3F3D",
+              light: "#FBFBFB",
+              soft: '#FCFCFC',
+            },
+            height: {
+              '70px': '70px',
+              '400px': '400px',
+              '500px': '500px',
+              '600px': '600px',
+              '700px': '700px',
+            },
+            inset: {
+              '70px': '70px',
+              '20px': '20px'
+            },
+            scale: {
+              '200': '2',
+            },
+            spacing: {
+              '8px': '8px',
+              '12px': '12px',
+              '13px': '13px',
+              '14px': '14px',
+              '15px': '15px',
+            }
+
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Source Sans Pro", sans-serif;
+        background-color: #3F3F3D;
+      }
+
+      .button-shadow{
+        -webkit-box-shadow: 0px 20px 30px 0px rgba(255,86,58,0.15);
+        -moz-box-shadow: 0px 20px 30px 0px rgba(255,86,58,0.15);
+        box-shadow: 0px 20px 30px 0px rgba(255,86,58,0.15);
+      }
+
+      #map {
+            height: 400px;
+            width: 100%;
+        }
+
+      .bg-titulo{
+        background-image: url( 'assets/images/bg_servicios.jpg' );
+        background-color: #000000;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to bottom, rgba(239, 127, 56, 0.11), rgba(0, 0, 0, 0.9));
+      }
+
+    </style>
+  </head>
+  <body class="bg-light">
+
+    <!-- Menu -->
+    <nav
+        class="fixed flex button-shadow rounded-md bg-white py-4 px-12 top-20px left-20px right-20px justify-between items-center text-sm z-50 scroll-menu transition-all duration-300"
+      >
+        <img src="assets/images/logo.png" style="height: 50px" />
+        <div class="flex">
+          <a href="index.html"><span class="mx-4">Inicio</span></a>
+          <a href="servicios.html"><span class="mx-4">Servicios</span></a>
+          <a href="proyectos.html"><span class="mx-4">Proyectos</span></a>
+          <span class="mx-4 text-primary">Nosotros</span>
+        </div>
+    </nav>
+
+    <div class="h-screen overscroll-none mx-24">
+
+      <!-- Titulo -->
+      <div class="pt-52 pb-32">
+        
+        <div class="flex flex-col items-center justify-center">
+          <span class="inline-block text-primary text-center font-bold w-1/2 text-5xl">
+            Somos ABRACO Ingeniería
+          </span>
+        </div>
+
+      </div>
+  
+      
+  
+      
+    <!-- Contactanos -->
+    <div class="px-24 flex flex-col w-full items-center justify-center">
+        
+      <div class="border-t-2 border-primary rounded-md p-12 bg-white flex items-center justify-center w-full">
+
+        <div class="flex items-center justify-center w-4/6">
+
+          <div class="p-12">
+
+            <div class="flex flex-col justify-center items-center">
+              
+              <span class="text-xl font-bold text-dark">Cont&aacute;ctanos</span>
+              <div class="flex w-full items-start text-dark text-lg mt-10">
+                <img src="assets/images/icons/location-pr.svg" class="mt-1">
+                <div class="flex flex-col w-full ml-4">
+                  <span>Las Begonias 441 - Piso 9</span>
+                  <span>San Isidro - Lima - Per&uacute;</span>
+                </div>
+              </div>
+  
+              <div class="flex w-full items-start text-dark text-lg mt-6">
+                <img src="assets/images/icons/mail-pr.svg" class="mt-1">
+                <div class="flex flex-col w-full ml-4">
+                  <a href="mailto:contacto@abraco-ing.com">contacto@abraco-ing.com</a>
+                </div>
+              </div>
+  
+              <div class="flex w-full items-start text-dark text-lg mt-6">
+                <img src="assets/images/icons/linkedin-pr.svg" class="mt-1">
+                <div class="flex flex-col w-full ml-4">
+                  <a href="mailto:contacto@abraco-ing.com">ABRACO Ingeniería</a>
+                </div>
+              </div>
+
+              <img src="assets/images/logo.png" class="mt-10" style="height: 50px" />
+            </div>
+
+          </div>
+
+          <div class="grow p-12">
+            <div class="button-shadow">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984.7414931551073!2d-77.02526268836435!3d-12.092181376826098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c864f0fec401%3A0xbe840942ec3d3dc2!2sC.%20Las%20Begonias%20445%2C%20San%20Isidro%2015046!5e0!3m2!1ses-419!2spe!4v1711340082831!5m2!1ses-419!2spe" 
+                  height="450" 
+                  style="border:0; width: 100%;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+      <!-- Footer -->
+      <div class="px-24 flex flex-col w-full items-center justify-center py-8 text-slate-500">
+        &copy; ABRACO Ingenier&iacute;a  | Todos los derechos reservados.
+      </div>
+
+    </div>
+
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+  <script>
+    const menuElement = document.querySelector('.scroll-menu');
+
+      window.addEventListener('scroll', function() {
+      if (window.scrollY > 0) {
+        menuElement.classList.remove( 'rounded-md', 'top-20px', 'left-20px', 'right-20px' );
+        menuElement.classList.add( 'top-0', 'left-0', 'right-0', 'rounded-none', 'button-shadow' );
+      } else {
+        menuElement.classList.add( 'rounded-md', 'top-20px', 'left-20px', 'right-20px' );
+        menuElement.classList.remove( 'top-0', 'left-0', 'right-0', 'rounded-none', 'button-shadow' );
+      }
+    });
+
+    const animations = [ '.plan', '.pre', '.dis', '.eje', '.ope' ];
+    animations.forEach( v => setAnimations( v ) );
+
+    startAnimation( '.plan' );
+
+    function startAnimation( control ){
+      // Items
+      const planMenu = document.querySelector(`${control}`);
+      const planMenuDiv = document.querySelector(`${control}-div`);
+      const planMenuTex = document.querySelector(`${control}-text`);
+      const planContent = document.querySelector(`${control}-content`);
+      
+      planMenuDiv.classList.add( 'scale-200', 'border-white' );
+      planMenuTex.classList.remove( 'text-white' );
+      planMenuTex.classList.add( 'ml-12', 'text-primary', 'text-3xl' );
+      planContent.classList.add( 'block' );
+      
+    }
+    
+    function setAnimations( control ){
+      // Items
+      const planMenu = document.querySelector(`${control}`);
+      const planMenuDiv = document.querySelector(`${control}-div`);
+      const planMenuTex = document.querySelector(`${control}-text`);
+      const planContent = document.querySelector(`${control}-content`);
+
+      planMenuTex.addEventListener("click", () => {
+        over();
+
+        animations
+        .filter( a => a != control )
+        .forEach( a => {
+          
+          const sPlanMenu = document.querySelector(`${a}`);
+          const sPlanMenuDiv = document.querySelector(`${a}-div`);
+          const sPlanMenuTex = document.querySelector(`${a}-text`);
+          const sPlanContent = document.querySelector(`${a}-content`);
+
+          sPlanMenuDiv.classList.remove( 'scale-200', 'border-white' );
+          sPlanMenuTex.classList.remove( 'ml-12', 'text-primary', 'text-3xl' );
+          sPlanContent.classList.remove( 'block' );
+          sPlanMenuTex.classList.add( 'text-white' );
+          sPlanMenuDiv.classList.add( 'border-primary' );
+          sPlanContent.classList.add( 'hidden' );
+
+        });
+      });
+
+      planMenuTex.addEventListener("mouseover", () => {
+        overText();
+      });
+
+      planMenuTex.addEventListener("mouseout", () => {
+        outText();
+      });
+
+      function over(){
+        planContent.classList.remove( 'hidden' );
+        planContent.classList.add( 'block' );
+
+        planMenuDiv.classList.add( 'scale-200', 'border-white' );
+  
+        planMenuTex.classList.remove( 'text-white' );
+        planMenuTex.classList.add( 'ml-12', 'text-primary', 'text-3xl' );
+      }
+      
+      function out(){
+        planMenuDiv.classList.remove( 'scale-200', 'border-white' );
+  
+        planMenuTex.classList.add( 'text-white' );
+        planMenuTex.classList.remove( 'ml-12', 'text-primary', 'text-3xl' );
+      }
+  
+      function overText(){
+        planMenuDiv.classList.remove( 'border-primary' );
+        planMenuDiv.classList.add( 'scale-110', 'border-white' );
+      }
+      
+      function outText(){
+        planMenuDiv.classList.remove( 'scale-110', 'border-white' );
+      }
+    }
+
+    
+  </script>
+</html>
