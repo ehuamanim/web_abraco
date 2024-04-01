@@ -1,5 +1,6 @@
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
@@ -18,6 +19,8 @@
               soft: "#FCFCFC",
             },
             height: {
+              "12px":"12px",
+              "18px":"18px",
               "70px": "70px",
               "400px": "400px",
               "500px": "500px",
@@ -38,7 +41,13 @@
               "14px": "14px",
               "15px": "15px",
               "18": "4.5rem",
-              "42": "10.5rem"
+              "41": "10rem",
+              "42": "10.5rem",
+              "43": "11rem",
+              "44": "11.5rem",
+              "45": "12rem",
+              "46": "12.5rem",
+              '90px': '90px',
             },
             lineHeight: {
               'p90': '1rem'
@@ -64,13 +73,6 @@
         width: 100%;
       }
 
-      .bg-titulo {
-        background-image: url("assets/images/bg_servicios.jpg");
-        background-color: #000000;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-
       .gradient {
         position: absolute;
         top: 0;
@@ -82,605 +84,158 @@
     </style>
   </head>
   <body class="bg-light">
+
     <!-- Menu -->
-    <nav class="fixed flex button-shadow rounded-md bg-white py-4 px-12 top-20px left-20px right-20px justify-between items-center text-sm z-50 scroll-menu transition-all duration-300">
-      <img src="assets/images/logo.png" style="height: 50px" />
-      <div class="flex">
+    <nav class="fixed flex w-full md:w-auto md:rounded-md bg-white shadow-lg py-4 px-4 xl:px-12 md:top-20px md:left-20px md:right-20px justify-between items-center text-sm z-50 scroll-menu transition-all duration-300">
+      
+      <!-- Logo -->
+      <img src="assets/images/logo.png" class="hidden xl:inline" style="height: 50px" />
+      <img src="assets/images/icons/iso.png" class="inline xl:hidden" style="height: 50px" />
+
+      <!-- Men&uacute; de escritorio -->
+      <div class="hidden md:flex">
         <a href="index.html"><span class="mx-4">Inicio</span></a>
         <a href="servicios.html"><span class="mx-4">Servicios</span></a>
         <span class="mx-4 text-primary">Proyectos</span>
         <a href="nosotros.html"><span class="mx-4">Nosotros</span></a>
       </div>
+
+      <!-- Icono de men&uacute; para dispositivos m&oacute;viles -->
+      <div class="lg:hidden">
+        <button id="mobile-menu-button" class="block text-gray-500 hover:text-white focus:text-white focus:outline-none">
+          <img src="assets/images/icons/menu_mobile.svg" class="h-50px w-50px">
+        </button>
+      </div>
     </nav>
+
+    <!-- Men&uacute; desplegable para dispositivos m&oacute;viles -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-white z-50 transform transition-transform ease-in-out duration-600 -translate-x-full">
+      <div class="flex flex-col items-center">
+
+        <div class="flex justify-between w-full p-4 bg-white button-shadow">
+          <img src="assets/images/logo.png" class="inline xl:hidden" style="height: 50px" />
+          <a id="close-mobile-menu" class="pointer">
+            <img src="assets/images/btn_close.svg">
+          </a>
+        </div>
+
+        <div class="w-full p-6 border-b border-primary">
+          <a class="block text-xl text-dark py-3 flex w-full" href="index.html">
+            <span class="grow">Inicio</span>
+            <img  src="assets/images/icons/right_on.svg">
+          </a>
+          <a class="block text-xl text-dark py-3 flex w-full" href="servicios.html">
+            <span class="grow">Servicios</span>
+            <img  src="assets/images/icons/right_on.svg">
+          </a>
+          <a class="block text-xl text-dark py-3 flex w-full" href="proyectos.html">
+            <span class="grow text-primary">Proyectos</span>
+            <img  src="assets/images/icons/right_off.svg">
+          </a>
+          <a class="block text-xl text-dark py-3 flex w-full" href="nosotros.html">
+            <span class="grow">Nosotros</span>
+            <img  src="assets/images/icons/right_on.svg">
+          </a>
+        </div>
+
+        <div class="w-full p-6">
+          <span class="text-2xl font-bold text-dark block text-center">Cont&aacute;ctanos</span>
+          <div class="flex w-full items-start text-dark text-lg mt-5">
+            <img src="assets/images/icons/location-pr.svg" class="mt-1" />
+            <div class="flex flex-col w-full ml-4">
+              <span>Las Begonias 441 - Piso 9</span>
+              <span>San Isidro - Lima - Per&uacute;</span>
+            </div>
+          </div>
+
+          <div class="flex w-full items-start text-dark text-lg mt-6">
+            <img src="assets/images/icons/mail-pr.svg" class="mt-1" />
+            <div class="flex flex-col w-full ml-4">
+              <a href="mailto:contacto@abraco-ing.com">contacto@abraco-ing.com</a>
+            </div>
+          </div>
+
+          <div class="flex w-full items-start text-dark text-lg mt-6">
+            <img src="assets/images/icons/linkedin-pr.svg" class="mt-1" />
+            <div class="flex flex-col w-full ml-4">
+              <a href="https://www.linkedin.com/company/abraco-ing/" target="_blank">ABRACO Ingenier&iacute;a</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="h-screen overscroll-none">
       <!-- Titulo -->
-      <div class="w-full bg-[url('assets/images/bg_proyectos.jpg')] bg-cover bg-no-repeat bg-bottom w-full relative">
-        <div class="pt-52 pb-36 px-48">
+      <div class="w-full bg-[url('assets/images/bg_proy_movil.jpg')] lg:bg-[url('assets/images/bg_proyectos.jpg')] bg-cover bg-no-repeat bg-bottom w-full relative">
+        <div class="pt-40 pb-36 lg:pt-52 lg:px-48">
           <div class="flex flex-col items-center justify-center z-20">
-            <span class="inline-block text-white text-center font-bold w-1/2 md:w-2/3 text-6xl"> Ingeniería para América Latina y el Caribe </span>
+            <span class="inline-block text-white text-center font-bold w-2/3 lg:w-1/2 md:w-2/3 text-5xl lg:text-6xl"> Ingenier&iacute;a para Am&eacute;rica Latina y el Caribe </span>
           </div>
         </div>
       </div>
 
-      <!-- Carousel -->
-      <div id="controls-carousel" class="relative w-full" data-carousel="static">
+      <!-- Carousel: desktop -->
+      <div id="controls-carousel" class="relative w-full hidden lg:block" data-carousel="static">
         <div class="relative h-72 overflow-hidden rounded-lg">
           
           <!-- Item 1 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
             <div class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" >
-              
-              <div class="absolute w-full border-t border-primary top-0 mt-2.5"></div>
-              <div class="w-full grid grid-flow-col justify-stretch items-start px-8">      
-                <!-- 2017 -->
-                <div class="flex flex-col items-center justify-center">
-
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-
-                  <span class="text-xl text-gray-500">2017</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-3.png" class="me-1" style="height: 12px;"/>
-                      <span>Perú</span>
-                    </div>
-  
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-8.png" class="me-1" style="height: 12px;"/>
-                      <span>Ecuador</span>
-                    </div>
-  
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-9.png" class="me-1" style="height: 12px;"/>
-                      <span>Bolivia</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 2018 -->
-                <div class="flex flex-col items-center justify-center">
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-                  <span class="text-xl text-gray-500">2018</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-12.png" class="me-1" style="height: 12px;"/>
-                      <span>Haití</span>
-                    </div>
-  
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-9.png" class="me-1" style="height: 12px;"/>
-                      <span>Bolivia</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-8.png" class="me-1" style="height: 12px;"/>
-                      <span>Ecuador</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 2019 -->
-                <div class="flex flex-col items-center justify-center">
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-                  <span class="text-xl text-gray-500">2019</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-9.png" class="me-1" style="height: 12px;"/>
-                      <span>Bolivia</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-3.png" class="me-1" style="height: 12px;"/>
-                      <span>Perú</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-12.png" class="me-1" style="height: 12px;"/>
-                      <span>Haití</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 2020 -->
-                <div class="flex flex-col items-center justify-center">
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-                  <span class="text-xl text-gray-500">2020</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-3.png" class="me-1" style="height: 12px;"/>
-                      <span>Perú</span>
-                    </div>
-                    
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-13.png" class="me-1" style="height: 12px;"/>
-                      <span class="leading-4">República <br>Dominicana</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-12.png" class="me-1" style="height: 12px;"/>
-                      <span>Haití</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-4.png" class="me-1" style="height: 12px;"/>
-                      <span>Panamá</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 2021 -->
-                <div class="flex flex-col items-center justify-center">
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-                  <span class="text-xl text-gray-500">2021</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-4.png" class="me-1" style="height: 12px;"/>
-                      <span>Panamá</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-3.png" class="me-1" style="height: 12px;"/>
-                      <span>Perú</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-12.png" class="me-1" style="height: 12px;"/>
-                      <span>Haití</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 2022 -->
-                <div class="flex flex-col items-center justify-center">
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-                  <span class="text-xl text-gray-500">2022</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-11.png" class="me-1" style="height: 12px;"/>
-                      <span>Ghana</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-12.png" class="me-1" style="height: 12px;"/>
-                      <span>Haití</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-4.png" class="me-1" style="height: 12px;"/>
-                      <span>Panamá</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-3.png" class="me-1" style="height: 12px;"/>
-                      <span>Perú</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 2023 -->
-                <div class="flex flex-col items-center justify-center">
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-                  <span class="text-xl text-gray-500">2023</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-12.png" class="me-1" style="height: 12px;"/>
-                      <span>Haití</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-11.png" class="me-1" style="height: 12px;"/>
-                      <span>Ghana</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 2024 -->
-                <div class="flex flex-col items-center justify-center">
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-                  <span class="text-xl text-gray-500">2024</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-0.png" class="me-1" style="height: 12px;"/>
-                      <span>Nicaragua</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-3.png" class="me-1" style="height: 12px;"/>
-                      <span>Perú</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+              <div class="absolute w-full border-t border-primary top-0"></div>
+              <div class="w-full grid grid-flow-col justify-stretch items-start px-8 -mt-2.5 timeline-1"></div>
             </div>
           </div>
 
           <!-- Item 2 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <div class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-              
-              <div class="absolute w-full border-t border-primary top-0 -mt-2.5"></div>
-              <div class="w-full grid grid-flow-col justify-stretch items-start px-8 -mt-5">      
-                <!-- 2008 -->
-                <div class="flex flex-col items-center justify-center">
-
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-
-                  <span class="text-xl text-gray-500">2008</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-3.png" class="me-1" style="height: 12px;"/>
-                      <span>Perú</span>
-                    </div>
-  
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-10.png" class="me-1" style="height: 12px;"/>
-                      <span>Arentina</span>
-                    </div>
-  
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-4.png" class="me-1" style="height: 12px;"/>
-                      <span>Panama</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 2009 -->
-                <div class="flex flex-col items-center justify-center">
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-                  <span class="text-xl text-gray-500">2009</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-14.png" class="me-1" style="height: 12px;"/>
-                      <span>Belice</span>
-                    </div>
-  
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-12.png" class="me-1" style="height: 12px;"/>
-                      <span>Haiti</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-7.png" class="me-1" style="height: 12px;"/>
-                      <span>Guatemala</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 2010 -->
-                <div class="flex flex-col items-center justify-center">
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-                  <span class="text-xl text-gray-500">2010</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-4.png" class="me-1" style="height: 12px;"/>
-                      <span class="leading-4">Republica <br>Dominicana</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-0.png" class="me-1" style="height: 12px;"/>
-                      <span>El Salvador</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-6.png" class="me-1" style="height: 12px;"/>
-                      <span>México</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 2012 -->
-                <div class="flex flex-col items-center justify-center">
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-                  <span class="text-xl text-gray-500">2012</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-3.png" class="me-1" style="height: 12px;"/>
-                      <span>Perú</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 2013 -->
-                <div class="flex flex-col items-center justify-center">
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-                  <span class="text-xl text-gray-500">2013</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-3.png" class="me-1" style="height: 12px;"/>
-                      <span>Perú</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 2014 -->
-                <div class="flex flex-col items-center justify-center">
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-                  <span class="text-xl text-gray-500">2014</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-3.png" class="me-1" style="height: 12px;"/>
-                      <span>Perú</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 2015 -->
-                <div class="flex flex-col items-center justify-center">
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-                  <span class="text-xl text-gray-500">2015</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-4.png" class="me-1" style="height: 12px;"/>
-                      <span class="leading-4">Republica <br>Dominicana</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-3.png" class="me-1" style="height: 12px;"/>
-                      <span>Perú</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 2016 -->
-                <div class="flex flex-col items-center justify-center">
-                  <div class="relative rounded-full p-1 flex items-center justify-center mb-3">
-                    <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary bg-white hover:border-white transition-transform duration-300"></div>
-                  </div>
-                  <span class="text-xl text-gray-500">2016</span>
-                  <div class="flex flex-col items-start">
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-1.png" class="me-1" style="height: 12px;"/>
-                      <span>Uruguay</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-8.png" class="me-1" style="height: 12px;"/>
-                      <span>Ecuador</span>
-                    </div>
-
-                    <div class="flex items-center mx-2 my-1 text-gray-500 text-sm">
-                      <img src="assets/images/flags/Banderas-12.png" class="me-1" style="height: 12px;"/>
-                      <span>Haití</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+              <div class="absolute w-full border-t border-primary top-0"></div>
+              <div class="w-full grid grid-flow-col justify-stretch items-start px-8 -mt-2.5 timeline-2"></div>
             </div>
           </div>
         </div>
         <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-          <span class="rounded-full bg-white drop-shadow-md p-2 -mt-42">
+          <span class="rounded-full bg-white drop-shadow-md p-1.5 -mt-41">
             <img src="assets/images/icons/prev.svg">
           </span>
         </button>
         <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-          <span class="rounded-full bg-white drop-shadow-md p-2 -mt-42">
+          <span class="rounded-full bg-white drop-shadow-md p-1.5 -mt-41">
             <img src="assets/images/icons/next.svg">
           </span>
         </button>
       </div>
+      <!-- /Carousel: desktop -->
 
-      <!-- Proyectos: 2017 -->
-      <div class="px-24 mb-12 lg:columns-1 xl:columns-2 proy-2017">
-        <div class="mb-4 p-4 px-8 flex flex-col w-full items-start justify-center bg-white button-shadow rounded-md text-gray-500">
-          <span class="text-dark text-xl font-bold">Cálculo de obras de conservación – Concesión IIRSA Norte </span>
-          <div class="flex my-1 items-center w-full">
-            <img src="assets/images/flags/Banderas-3.png" class="me-2" style="height: 14px"> 
-            <span class="w-1/6">Perú</span>
-            <img src="assets/images/icons/clock.svg" class="me-2" style="height: 16px">
-            <span>2017</span>
-          </div>
-          Modelación de deterioro de los pavimentos y determinación de intervenciones.
-        </div>
-
-        <div class="mb-4 p-4 px-8 flex flex-col w-full items-start justify-center bg-white button-shadow rounded-md text-gray-500">
-          <span class="text-dark text-xl font-bold">Cálculo de obras de conservación – Concesión IIRSA Sur (T2 y T3)</span>
-          <div class="flex my-1 items-center w-full">
-            <img src="assets/images/flags/Banderas-3.png" class="me-2" style="height: 14px"> 
-            <span class="w-1/6">Perú</span>
-            <img src="assets/images/icons/clock.svg" class="me-2" style="height: 16px">
-            <span>2017</span>
-          </div>
-          Modelación de deterioro de los pavimentos y determinación de intervenciones.
-        </div>
-
-        <div class="mb-4 p-4 px-8 flex flex-col w-full items-start justify-center bg-white button-shadow rounded-md text-gray-500">
-          <span class="text-dark text-xl font-bold">Elaboración de un plan estratégico vial provincial</span>
-          <div class="flex my-1 items-center w-full">
-            <img src="assets/images/flags/Banderas-8.png" class="me-2" style="height: 14px"> 
-            <span class="w-1/6">Ecuador</span>
-            <img src="assets/images/icons/clock.svg" class="me-2" style="height: 16px">
-            <span>2017</span>
-          </div>
-          Elaboración de un Plan Estratégico Vial Provincial para la totalidad de las Provincias de Ecuador.
-        </div>
-
-        <div class="mb-4 p-4 px-8 flex flex-col w-full items-start justify-center bg-white button-shadow rounded-md text-gray-500">
-          <span class="text-dark text-xl font-bold">Guía de preinversión para proyectos camineros y aeroportuarios</span>
-          <div class="flex my-1 items-center w-full">
-            <img src="assets/images/flags/Banderas-9.png" class="me-2" style="height: 14px"> 
-            <span class="w-1/6">Bolivia</span>
-            <img src="assets/images/icons/clock.svg" class="me-2" style="height: 16px">
-            <span>2017</span>
-          </div>
-          Categorización de los proyectos del sector transporte y la elaboración de una guía de preinversión.
-        </div>
-
+      <!-- Carousel: movil -->
+      <div id="controls-carousel-movil" class="relative w-full lg:hidden" data-carousel="static">
+        <div class="relative h-72 overflow-hidden rounded-lg items-car-movil"></div>
+        
+        <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+          <span class="rounded-full bg-white drop-shadow-md p-1.5 -mt-44">
+            <img src="assets/images/icons/prev.svg">
+          </span>
+        </button>
+        <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+          <span class="rounded-full bg-white drop-shadow-md p-1.5 -mt-44">
+            <img src="assets/images/icons/next.svg">
+          </span>
+        </button>
       </div>
+      <!-- /Carousel: movil -->
 
-      <!-- 2018 -->
-      <div class="px-24 mb-12 lg:columns-1 xl:columns-2 proy-2018">
-        <div class="mb-4 p-4 px-8 flex flex-col w-full items-start justify-center bg-white button-shadow rounded-md text-gray-500">
-          <span class="text-dark text-xl font-bold">Priorización de intervenciones en puentes de Haití</span>
-          <div class="flex my-1 items-center w-full">
-            <img src="assets/images/flags/Banderas-12.png" class="me-2" style="height: 14px"> 
-            <span class="w-1/6">Haití</span>
-            <img src="assets/images/icons/clock.svg" class="me-2" style="height: 16px">
-            <span>2018</span>
-          </div>
-          Estimación de la tipología de intervención requerida y desarrollo de un modelo de priorización de intervenciones.
-        </div>
-
-        <div class="mb-4 p-4 px-8 flex flex-col w-full items-start justify-center bg-white button-shadow rounded-md text-gray-500">
-          <span class="text-dark text-xl font-bold">Plan Vial Logístico Departamental de Cochabamba</span>
-          <div class="flex my-1 items-center w-full">
-            <img src="assets/images/flags/Banderas-9.png" class="me-2" style="height: 14px"> 
-            <span class="w-1/6">Bolivia</span>
-            <img src="assets/images/icons/clock.svg" class="me-2" style="height: 16px">
-            <span>2018</span>
-          </div>
-          Inventario de la Red Vial Departamental y elaboración de un programa plurianual de intervenciones.
-        </div>
-
-        <div class="mb-4 p-4 px-8 flex flex-col w-full items-start justify-center bg-white button-shadow rounded-md text-gray-500">
-          <span class="text-dark text-xl font-bold">Planes Viales Provinciales en Ecuador</span>
-          <div class="flex my-1 items-center w-full">
-            <img src="assets/images/flags/Banderas-8.png" class="me-2" style="height: 14px"> 
-            <span class="w-1/6">Ecuador</span>
-            <img src="assets/images/icons/clock.svg" class="me-2" style="height: 16px">
-            <span>2018</span>
-          </div>
-          Desarrollo de una metodología y elaboración de los planes viales de Azuay, Esmeraldas, Guayas y Pastaza.
-        </div>
-
-        <div class="mb-4 p-4 px-8 flex flex-col w-full items-start justify-center invisible">
-          <span class="text-dark text-xl font-bold">&nbsp;</span>
-          <div class="flex my-1 items-center w-full">
-            <img src="assets/images/flags/Banderas-8.png" class="me-2" style="height: 14px"> 
-            <span class="w-1/6">&nbsp;</span>
-            <img src="assets/images/icons/clock.svg" class="me-2" style="height: 16px">
-            <span>&nbsp;</span>
-          </div>
-          &nbsp;
-        </div>
-
-      </div>
-
-      <!-- 2019 -->
-      <div class="px-24 mb-12 lg:columns-1 xl:columns-2 proy-2019">
-        <div class="mb-4 p-4 px-8 flex flex-col w-full items-start justify-center bg-white button-shadow rounded-md text-gray-500">
-          <span class="text-dark text-xl font-bold">Inventario y elaboración de Plan Vial 2019 – 2023</span>
-          <div class="flex my-1 items-center w-full">
-            <img src="assets/images/flags/Banderas-9.png" class="me-2" style="height: 14px"> 
-            <span class="w-1/6">Bolivia</span>
-            <img src="assets/images/icons/clock.svg" class="me-2" style="height: 16px">
-            <span>2019</span>
-          </div>
-          Inventario de la Red Vial Fundamental Pavimentada y elaboración de un plurianual de intervenciones.
-        </div>
-      
-        <div class="mb-4 p-4 px-8 flex flex-col w-full items-start justify-center bg-white button-shadow rounded-md text-gray-500">
-          <span class="text-dark text-xl font-bold">Aplicativo para Gestión de Proyectos de Infraestructura Vial</span>
-          <div class="flex my-1 items-center w-full">
-            <img src="assets/images/flags/Banderas-9.png" class="me-2" style="height: 14px"> 
-            <span class="w-1/6">Bolivia</span>
-            <img src="assets/images/icons/clock.svg" class="me-2" style="height: 16px">
-            <span>2019</span>
-          </div>
-          Desarrollo para la ABC de un aplicativo para el registro y gestión de proyectos de infraestructura vial.
-        </div>
-      
-        <div class="mb-4 p-4 px-8 flex flex-col w-full items-start justify-center bg-white button-shadow rounded-md text-gray-500">
-          <span class="text-dark text-xl font-bold">Apoyo a la elaboración del Plan Nacional de Infraestructura de Perú</span>
-          <div class="flex my-1 items-center w-full">
-            <img src="assets/images/flags/Banderas-3.png" class="me-2" style="height: 14px"> 
-            <span class="w-1/6">Perú</span>
-            <img src="assets/images/icons/clock.svg" class="me-2" style="height: 16px">
-            <span>2019</span>
-          </div>
-          Soporte técnico, sistematización del manejo de información y desarrollo de aplicativo de visualización.
-        </div>
-      
-        <div class="mb-4 p-4 px-8 flex flex-col w-full items-start justify-center bg-white button-shadow rounded-md text-gray-500">
-          <span class="text-dark text-xl font-bold">Peritaje en Concesión de la Carretera Longitudinal de la Sierra Tramo 2</span>
-          <div class="flex my-1 items-center w-full">
-            <img src="assets/images/flags/Banderas-3.png" class="me-2" style="height: 14px"> 
-            <span class="w-1/6">Perú</span>
-            <img src="assets/images/icons/clock.svg" class="me-2" style="height: 16px">
-            <span>2019</span>
-          </div>
-          Relevamiento (rugosidad, deflectometría, georradar, fallas, fricción, conteos y pesaje) y determinación de intervenciones.
-        </div>
-      
-        <div class="mb-4 p-4 px-8 flex flex-col w-full items-start justify-center bg-white button-shadow rounded-md text-gray-500">
-          <span class="text-dark text-xl font-bold">Estudios preliminares de 38 puentes</span>
-          <div class="flex my-1 items-center w-full">
-            <img src="assets/images/flags/Banderas-12.png" class="me-2" style="height: 14px"> 
-            <span class="w-1/6">Haití</span>
-            <img src="assets/images/icons/clock.svg" class="me-2" style="height: 16px">
-            <span>2019</span>
-          </div>
-          Estudios preliminares de diseño a nivel de anteproyecto en 38 puentes con alternativas de diseño estructural.
-        </div>
-      
-        <div class="mb-4 p-4 px-8 flex flex-col w-full items-start justify-center invisible">
-          <span class="text-dark text-xl font-bold">&nbsp;</span>
-          <div class="flex my-1 items-center w-full">
-            <img src="assets/images/flags/Banderas-8.png" class="me-2" style="height: 14px"> 
-            <span class="w-1/6">&nbsp;</span>
-            <img src="assets/images/icons/clock.svg" class="me-2" style="height: 16px">
-            <span>&nbsp;</span>
-          </div>
-          &nbsp;
-        </div>
-      
-      </div>
+      <!-- Proyectos -->
+      <div class="px-4 lg:px-24 mb-12 grid lg:grid-cols-1 xl:grid-cols-2 gap-6 proyectos"></div>
 
 
       <!-- Contactanos -->
-      <div class="px-24 bg-light button-shadow">
-        <div class="px-24 md:px-0 flex flex-col w-full items-center justify-center">
-          <div class="border-t-2 border-primary rounded-md p-12 bg-white flex items-center justify-center w-full">
-            <div class="flex items-center justify-center w-4/6 md:w-full">
-              <div class="p-12 md:p-4">
+      <div class="px-4 lg:px-12 xl:px-24 bg-light pt-8 button-shadow">
+        <div class="flex flex-col w-full px-0 xl:px-24 items-center justify-center">
+          <div class="border-t-2 border-primary rounded-md p-6 px-0 lg:px-12 lg:p-12 bg-white flex items-center justify-center w-full">
+            
+            <div class="flex flex-col items-center justify-center w-full xl:w-5/6 lg:flex-row">
+              <div class="p-4 lg:p-4 xl:p-12">
                 <div class="flex flex-col justify-center items-center">
                   <span class="text-xl font-bold text-dark">Cont&aacute;ctanos</span>
                   <div class="flex w-full items-start text-dark text-lg mt-10">
@@ -701,25 +256,22 @@
                   <div class="flex w-full items-start text-dark text-lg mt-6">
                     <img src="assets/images/icons/linkedin-pr.svg" class="mt-1" />
                     <div class="flex flex-col w-full ml-4">
-                      <a href="mailto:contacto@abraco-ing.com">ABRACO Ingeniería</a>
+                      <a href="https://www.linkedin.com/company/abraco-ing/" target="_blank">ABRACO Ingenier&iacute;a</a>
                     </div>
                   </div>
 
-                  <img src="assets/images/logo.png" class="mt-10" style="height: 50px" />
+                  <img src="assets/images/logo.png" class="my-10 h-70px lg:h-50px"/>
                 </div>
               </div>
 
-              <div class="grow lg:p-12 md:p-4">
-                <div class="button-shadow">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984.7414931551073!2d-77.02526268836435!3d-12.092181376826098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c864f0fec401%3A0xbe840942ec3d3dc2!2sC.%20Las%20Begonias%20445%2C%20San%20Isidro%2015046!5e0!3m2!1ses-419!2spe!4v1711340082831!5m2!1ses-419!2spe"
-                    height="450"
-                    style="border: 0; width: 100%"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                </div>
+              <div class="lg:grow lg:w-auto m-0 lg:m-8 md:m-4 button-shadow w-full">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.280789146565!2d-77.02673612387625!3d-12.09291988814753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c864f07ff80d%3A0x126025ead9936d22!2sC.%20Las%20Begonias%20441%2C%20San%20Isidro%2015046!5e0!3m2!1ses-419!2spe!4v1711947447792!5m2!1ses-419!2spe" 
+                  height="450"
+                  style="border: 0; width: 100%"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>
@@ -727,24 +279,689 @@
       </div>
 
       <!-- Footer -->
-      <div class="px-24 bg-light">
-        <div class="px-24 flex flex-col w-full items-center justify-center py-8 text-slate-500">&copy; ABRACO Ingenier&iacute;a | Todos los derechos reservados.</div>
+      <div class="lg:px-24 bg-light">
+        <div class="lg:px-24 flex flex-col text-center w-full items-center justify-center py-8 text-slate-500">
+          &copy; ABRACO Ingenier&iacute;a <br> Todos los derechos reservados.</div>
       </div>
     </div>
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <script>
     const menuElement = document.querySelector(".scroll-menu");
     window.addEventListener("scroll", function () {
       if (window.scrollY > 0) {
-        menuElement.classList.remove("rounded-md", "top-20px", "left-20px", "right-20px");
-        menuElement.classList.add("top-0", "left-0", "right-0", "rounded-none", "button-shadow");
+        menuElement.classList.remove( 'xl:rounded-md', 'xl:top-20px', 'xl:left-20px', 'xl:right-20px' );
+        menuElement.classList.add( 'xl:top-0', 'xl:left-0', 'xl:right-0', 'xl:rounded-none', 'xl:button-shadow' );
       } else {
-        menuElement.classList.add("rounded-md", "top-20px", "left-20px", "right-20px");
-        menuElement.classList.remove("top-0", "left-0", "right-0", "rounded-none", "button-shadow");
+        menuElement.classList.add( 'xl:rounded-md', 'xl:top-20px', 'xl:left-20px', 'xl:right-20px' );
+        menuElement.classList.remove( 'xl:top-0', 'xl:left-0', 'xl:right-0', 'xl:rounded-none', 'xl:button-shadow' );
       }
+    });
+
+    // Mobile button
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('-translate-x-full');
+    });
+
+    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+    closeMobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.add('-translate-x-full');
+    });
+
+    const yearsTimeLine1 = '2017,2018,2019,2020,2021,2022,2023,2024'; 
+    const yearsTimeLine2 = '2008,2009,2010,2012,2013,2014,2015,2016'; 
+    let anioSelected = 0;
+
+    const paises = new Map();
+    paises.set('nicaragua', 'Banderas-0.png');
+    paises.set('uruguay', 'Banderas-1.png');
+    paises.set('peru', 'Banderas-3.png');
+    paises.set('panama', 'Banderas-4.png');
+    paises.set('el_salvador', 'Banderas-5.png');
+    paises.set('mexico', 'Banderas-6.png');
+    paises.set('guatemala', 'Banderas-7.png');
+    paises.set('ecuador', 'Banderas-8.png');
+    paises.set('bolivia', 'Banderas-9.png');
+    paises.set('argentina', 'Banderas-10.png');
+    paises.set('ghana', 'Banderas-11.png');
+    paises.set('haiti', 'Banderas-12.png');
+    paises.set('rep_dominicana', 'Banderas-13.png');
+    paises.set('belice', 'Banderas-14.png');
+
+    const datos = [
+      { 
+        titulo: 'Estudio de demanda de la Red Vial 4',
+        pais: 'Per&uacute;',
+        anio: '2008',
+        desc: 'C&aacute;lculo de la demanda e ingresos por peajes durante el horizonte de la concesi&oacute;n.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Mejoramiento de la gesti&oacute;n vial Provincial de C&oacute;rdoba',
+        pais: 'Argentina',
+        anio: '2008',
+        desc: 'An&aacute;lisis de contratos identificando necesidades de la planificaci&oacute;n vial provincial.',
+        icon: paises.get('argentina')
+      },{ 
+        titulo: 'Contratos de mantenimiento por niveles de servicio',
+        pais: 'Panam&aacute;',
+        anio: '2008',
+        desc: 'Identificaci&oacute;n de los circuitos, estimaci&oacute;n de intervenciones y pliegos de condiciones para los contratos.',
+        icon: paises.get('panama')
+      },{ 
+        titulo: 'Determinaci&oacute;n de necesidades para el mantenimiento vial',
+        pais: 'Belice',
+        anio: '2009',
+        desc: 'Determinaci&oacute;n de necesidades financiaras para mantenimiento de carreteras para 10 a&ntilde;os.',
+        icon: paises.get('belice')
+      },{ 
+        titulo: 'Factibilidad de la ruta Les Cayes - Jeremie',
+        pais: 'Hait&iacute;',
+        anio: '2009',
+        desc: 'Estudio de factibilidad de la Ruta Nacional 8 en el tramo Les Cayes - Jeremie.',
+        icon: paises.get('haiti')
+      },{ 
+        titulo: 'Evaluaci&oacute;n de las obras del Pr&eacute;stamo 7169-GU',
+        pais: 'Guatemala',
+        anio: '2009',
+        desc: 'Evaluaci&oacute;n de las obras del pr&eacute;stamo 7169-GU, identificaci&oacute;n de problemas y propuesta e implementaci&oacute;n de soluciones.',
+        icon: paises.get('guatemala')
+      },{ 
+        titulo: 'Contratos de mantenimiento por niveles de servicio',
+        pais: 'Rep&uacute;blica Dominicana',
+        anio: '2010',
+        desc: 'Identificaci&oacute;n de los circuitos, estimaci&oacute;n de intervenciones y pliegos de condiciones para los contratos.',
+        icon: paises.get('rep_dominicana')
+      },{ 
+        titulo: 'Proyectos de inversi&oacute;n para el sector transporte',
+        pais: 'El Salvador y Mexico',
+        anio: '2010',
+        desc: 'Apoyo a los equipos del BID en la identificaci&oacute;n y preparaci&oacute;n de proyectos de inversi&oacute;n.',
+        icon: paises.get('el_salvador')
+      },{ 
+        titulo: 'C&aacute;lculo de ingresos por peaje en Concesi&oacute;n Dv. Quilca - La Concordia',
+        pais: 'Per&uacute;',
+        anio: '2012',
+        desc: 'Se determinaron el nivel de demanda de la Red Vial 4 y los ingresos por peaje para el proyecto.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'C&aacute;lculo de intervenciones en Concesi&oacute;n IIRSA Sur - Tramo 5',
+        pais: 'Per&uacute;',
+        anio: '2012',
+        desc: 'Modelaci&oacute;n del comportamiento del pavimento y se determinaci&oacute;n de intervenciones en un per&iacute;odo de 20 a&ntilde;os.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Capacitaci&oacute;n en HDM-4',
+        pais: 'Per&uacute;',
+        anio: '2012',
+        desc: 'Capacitaci&oacute;n al personal del MEF en el uso de HDM-4 y recomendaciones para su implementaci&oacute;n.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Revisi&oacute;n de estimaciones de Proinversi&oacute;n para Concesi&oacute;n IIRSA Sur Tramos 5',
+        pais: 'Per&uacute;',
+        anio: '2013',
+        desc: 'Revisi&oacute;n de las estimaciones de intervenci&oacute;n hechas por Proinversi&oacute;n y comparaci&oacute;n con los requerimientos efectivos.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'C&aacute;lculo de intervenciones para Concesi&oacute;n Longitudinal de la Sierra, Tramo 2',
+        pais: 'Per&uacute;',
+        anio: '2013',
+        desc: 'Determinaci&oacute;n de alternativas de intervenci&oacute;n de mantenimiento peri&oacute;dico y rutinario sus costos en un per&iacute;odo de 25 a&ntilde;os.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Estudio de pre-inversi&oacute;n del Corredor Vial Norte-Sur de Trujillo',
+        pais: 'Per&uacute;',
+        anio: '2013',
+        desc: 'Se realiz&oacute; el estudio de Pre-inversi&oacute;n a nivel de perfil para la construcci&oacute;n del corredor vial Norte-Sur.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Diagnostico predial y los expedientes para tramo Trujillo-Chiclayo',
+        pais: 'Per&uacute;',
+        anio: '2014',
+        desc: 'Diagnostico t&eacute;cnico legal de 1600 predios y expedientes individuales para su posterior expropiaci&oacute;n.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Evaluaci&oacute;n de Carretera Longitudinal de la Sierra Norte - Tramo 2',
+        pais: 'Per&uacute;',
+        anio: '2014',
+        desc: 'Se midieron niveles de servicio, rugosidad, deflexi&oacute;n, fricci&oacute;n, y elaboraron informes de los incumplimientos.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Diagn&oacute;stico predial para obras de abastecimiento de agua potable',
+        pais: 'Per&uacute;',
+        anio: '2014',
+        desc: 'Determinaci&oacute;n de l&iacute;nea de base de negociaci&oacute;n para los terrenos que del proyecto.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'C&aacute;lculo de intervenciones en el tramo Arequipa - La Joya',
+        pais: 'Per&uacute;',
+        anio: '2014',
+        desc: 'Determinaci&oacute;n de las intervenciones requeridas en un per&iacute;odo de 25 a&ntilde;os para el proyecto de autopista Arequipa - La Joya.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'C&aacute;lculo de intervenciones en el Tramo Tingo Mar&iacute;a - Tarapoto',
+        pais: 'Per&uacute;',
+        anio: '2014',
+        desc: 'Determinaci&oacute;n de intervenciones requeridas en el tramo Tarapoto - Tingo Mar&iacute;a en el periodo 2015 - 2040.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'C&aacute;lculo de intervenciones en el Tramo Tingo Mar&iacute;a - Pucallpa',
+        pais: 'Per&uacute;',
+        anio: '2014',
+        desc: 'Determinaci&oacute;n de intervenciones requeridas en el tramo Tingo Mar&iacute;a- Pucallpa en el periodo 2015 - 2040.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Requerimientos presupuestales para conservaci&oacute;n vial',
+        pais: 'Rep&uacute;blica Dominicana',
+        anio: '2015',
+        desc: 'Determinaci&oacute;n de intervenciones y requerimientos presupuestales para la infraestructura vial interurbana del MOPC.',
+        icon: paises.get('rep_dominicana')
+      },{ 
+        titulo: 'Requerimientos de intervenciones - Longitudinal de la Sierra Tramo 4',
+        pais: 'Per&uacute;',
+        anio: '2015',
+        desc: 'Inventario de 971 Km y determinaci&oacute;n de intervenciones para el per&iacute;odo de 25 a&ntilde;os.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Evaluaci&oacute;n econ&oacute;mica de obra Accesoria en sector "La Pastora"',
+        pais: 'Per&uacute;',
+        anio: '2015',
+        desc: 'Identificaci&oacute;n, evaluaci&oacute;n y valorizaci&oacute;n de edificaciones y evaluaci&oacute;n econ&oacute;mica del proyecto.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Estudio de tr&aacute;fico en tramo Iberia-I&ntilde;apari - IIRSA Sur',
+        pais: 'Per&uacute;',
+        anio: '2015',
+        desc: 'Conteos vehiculares, c&aacute;lculo de tr&aacute;fico futuro y determinaci&oacute;n ESALs.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Iniciativa privada en ITS - Determinaci&oacute;n de beneficios y evaluaci&oacute;n econ&oacute;mica',
+        pais: 'Per&uacute;',
+        anio: '2015',
+        desc: 'Identificaci&oacute;n de beneficios, la formulaci&oacute;n y evaluaci&oacute;n econ&oacute;mica de iniciativa privada en ITS.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'C&aacute;lculo de obras en concesiones - Circuitos 1 y 2',
+        pais: 'Uruguay',
+        anio: '2016',
+        desc: 'Inventario de 450 Km y determinaci&oacute;n las intervenciones requeridas para un per&iacute;odo de 25 a&ntilde;os.',
+        icon: paises.get('uruguay')
+      },{ 
+        titulo: 'Mejora de contratos por niveles de servicio',
+        pais: 'Ecuador',
+        anio: '2016',
+        desc: 'Apoyo al Gobierno de Ecuador en mejorar los contratos de mantenimiento vial por niveles de servicio.',
+        icon: paises.get('ecuador')
+      },{ 
+        titulo: 'Reorganizaci&oacute;n del mantenimiento vial en el MTPTC',
+        pais: 'Hait&iacute;',
+        anio: '2016',
+        desc: 'Diagn&oacute;stico, elaboraci&oacute;n de propuesta de funcionamiento y plan de implementaci&oacute;n del mantenimiento vial.',
+        icon: paises.get('haiti')
+      },{ 
+        titulo: 'C&aacute;lculo de obras de conservaci&oacute;n - Concesi&oacute;n IIRSA Norte',
+        pais: 'Per&uacute;',
+        anio: '2017',
+        desc: 'Modelaci&oacute;n de deterioro de los pavimentos y determinaci&oacute;n de intervenciones.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'C&aacute;lculo de obras de conservaci&oacute;n - Concesi&oacute;n IIRSA Sur (T2 y T3)',
+        pais: 'Per&uacute;',
+        anio: '2017',
+        desc: 'Modelaci&oacute;n de deterioro de los pavimentos y determinaci&oacute;n de intervenciones.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Elaboraci&oacute;n de un plan estrat&eacute;gico vial provincial',
+        pais: 'Ecuador',
+        anio: '2017',
+        desc: 'Elaboraci&oacute;n de un Plan Estrat&eacute;gico Vial Provincial para la totalidad de las Provincias de Ecuador.',
+        icon: paises.get('ecuador')
+      },{ 
+        titulo: 'Gu&iacute;a de preinversi&oacute;n para proyectos camineros y aeroportuarios',
+        pais: 'Bolivia',
+        anio: '2017',
+        desc: 'Categorizaci&oacute;n de los proyectos del sector transporte y la elaboraci&oacute;n de una gu&iacute;a de preinversi&oacute;n.',
+        icon: paises.get('bolivia')
+      },{ 
+        titulo: 'Priorizaci&oacute;n de intervenciones en puentes de Hait&iacute;',
+        pais: 'Hait&iacute;',
+        anio: '2018',
+        desc: 'Estimaci&oacute;n de la tipolog&iacute;a de intervenci&oacute;n requerida y desarrollo de un modelo de priorizaci&oacute;n de intervenciones.',
+        icon: paises.get('haiti')
+      },{ 
+        titulo: 'Plan Vial Log&iacute;stico Departamental de Cochabamba',
+        pais: 'Bolivia',
+        anio: '2018',
+        desc: 'Inventario de la Red Vial Departamental y elaboraci&oacute;n de un programa plurianual de intervenciones.',
+        icon: paises.get('bolivia')
+      },{ 
+        titulo: 'Planes Viales Provinciales en Ecuador',
+        pais: 'Ecuador',
+        anio: '2018',
+        desc: 'Desarrollo de una metodolog&iacute;a y elaboraci&oacute;n de los planes viales de Azuay, Esmeraldas, Guayas y Pastaza.',
+        icon: paises.get('ecuador')
+      },{ 
+        titulo: 'Inventario y elaboraci&oacute;n de Plan Vial 2019 - 2023',
+        pais: 'Bolivia',
+        anio: '2019',
+        desc: 'Inventario de la Red Vial Fundamental Pavimentada y elaboraci&oacute;n de un plurianual de intervenciones.',
+        icon: paises.get('bolivia')
+      },{ 
+        titulo: 'Aplicativo para Gesti&oacute;n de Proyectos de Infraestructura Vial',
+        pais: 'Bolivia',
+        anio: '2019',
+        desc: 'Desarrollo para la ABC de un aplicativo para el registro y gesti&oacute;n de proyectos de infraestructura vial.',
+        icon: paises.get('bolivia')
+      },{ 
+        titulo: 'Apoyo a la elaboraci&oacute;n del Plan Nacional de Infraestructura de Per&uacute;',
+        pais: 'Per&uacute;',
+        anio: '2019',
+        desc: 'Soporte t&eacute;cnico, sistematizaci&oacute;n del manejo de informaci&oacute;n y desarrollo de aplicativo de visualizaci&oacute;n.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Peritaje en Concesi&oacute;n de la Carretera Longitudinal de la Sierra Tramo 2',
+        pais: 'Per&uacute;',
+        anio: '2019',
+        desc: 'Relevamiento (rugosidad, deflectometr&iacute;a, georradar, fallas, fricci&oacute;n, conteos y pesaje) y determinaci&oacute;n de intervenciones.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Estudios preliminares de 38 puentes',
+        pais: 'Hait&iacute;',
+        anio: '2019',
+        desc: 'Estudios preliminares de dise&ntilde;o a nivel de anteproyecto en 38 puentes con alternativas de dise&ntilde;o estructural.',
+        icon: paises.get('haiti')
+      },{ 
+        titulo: 'Mecanismo t&eacute;cnico - legal para obras accesorias en concesiones',
+        pais: 'Per&uacute;',
+        anio: '2020',
+        desc: 'Dise&ntilde;o de mecanismo t&eacute;cnico-legal que permiti&oacute; financiar el dise&ntilde;o de las obras accesorias.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Apoyo al Plan Nacional de Infraestructura de Rep&uacute;blica Dominicana',
+        pais: 'Rep&uacute;blica Dominicana',
+        anio: '2020',
+        desc: 'Soporte t&eacute;cnico, sistematizaci&oacute;n del manejo de informaci&oacute;n y desarrollo de aplicativo de visualizaci&oacute;n.',
+        icon: paises.get('rep_dominicana')
+      },{ 
+        titulo: 'Anteproyectos de 12 puentes',
+        pais: 'Hait&iacute;',
+        anio: '2020',
+        desc: 'Estudio a nivel de anteproyecto de 12 puentes y elaboraron del T&eacute;rminos de Referencia para su contrataci&oacute;n.',
+        icon: paises.get('haiti')
+      },{ 
+        titulo: 'Aplicativo de visualizaci&oacute;n para el Plan Corredor Pac&iacute;fico',
+        pais: 'Panam&aacute;',
+        anio: '2020',
+        desc: 'Desarrollo de un aplicativo para visualizar todo el trabajo del proyecto - Corredor Pac&iacute;fico.',
+        icon: paises.get('panama')
+      },{ 
+        titulo: 'Evaluaci&oacute;n Operaci&oacute;n PN-L1047 de Transporte',
+        pais: 'Panam&aacute;',
+        anio: '2021',
+        desc: 'Evaluaci&oacute;n Operaci&oacute;n PN-L1047 de Transporte',
+        icon: paises.get('panama')
+      },{ 
+        titulo: 'Ajustes al proyecto Mulatupu - Carretera Panamericana',
+        pais: 'Panam&aacute;',
+        anio: '2021',
+        desc: 'Ajustes al dise&ntilde;o, cronolog&iacute;a de ejecuci&oacute;n y modo de gesti&oacute;n para un impacto positivo en aspectos socioambientales.',
+        icon: paises.get('panama')
+      },{ 
+        titulo: 'Medici&oacute;n de niveles de servicio en Concesi&oacute;n Autopista del Sol',
+        pais: 'Per&uacute;',
+        anio: '2021',
+        desc: 'Medici&oacute;n de niveles de servicio (fricci&oacute;n, rugosidad, deflectometr&iacute;a y defectos) para evaluar la condici&oacute;n de entrega.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Inventario y Plan de Obras 2022 - 2026',
+        pais: 'Hat&iacute;',
+        anio: '2021',
+        desc: 'Inventario de la red vial nacional y departamental de Hait&iacute; y elaboraci&oacute;n de un plan quinquenal de obras.',
+        icon: paises.get('bolivia')
+      },{ 
+        titulo: 'Optimizaci&oacute;n de rasante carretera Bolgatanga- Polimakon',
+        pais: 'Ghana',
+        anio: '2022',
+        desc: 'Optimizaci&oacute;n de la traza de la rasante, actualizaci&oacute;n de dise&ntilde;os y metrados de la carretera: Bolgatanga - Polimakon.',
+        icon: paises.get('bolivia')
+      },{ 
+        titulo: 'Proyecto de ingenier&iacute;a de 175 Km en la Ruta Nacional 2',
+        pais: 'Hait&iacute;',
+        anio: '2022',
+        desc: 'Dise&ntilde;os y elaboraci&oacute;n de documentos para licitar las obras viales en 175 Km de la RN2 (incluyendo 3 cruces).',
+        icon: paises.get('haiti')
+      },{ 
+        titulo: 'Diagn&oacute;stico de la Ruta Nacional 2',
+        pais: 'Hait&iacute;',
+        anio: '2022',
+        desc: 'Inventario de elementos y condici&oacute;n de la infraestructura y determinaci&oacute;n de necesidades de intervenci&oacute;n.',
+        icon: paises.get('haiti')
+      },{ 
+        titulo: 'Desarrollo de aplicativo para gesti&oacute;n de contratos de obra',
+        pais: 'Hait&iacute;',
+        anio: '2022',
+        desc: 'Desarrollo de una herramienta web para el monitoreo de los contratos de obra.',
+        icon: paises.get('haiti')
+      },{ 
+        titulo: 'Revisi&oacute;n de dise&ntilde;o de la V&iacute;a Atalaya -Las Flores',
+        pais: 'Panam&aacute;',
+        anio: '2022',
+        desc: 'Evaluaci&oacute;n t&eacute;cnica y sustento de los cambios de dise&ntilde;o del proyecto Atalaya - Mariato - Las Flores.',
+        icon: paises.get('panama')
+      },{ 
+        titulo: 'Estudio T&eacute;cnico Inicial de Concesi&oacute;n Panamericana Oeste',
+        pais: 'Panam&aacute;',
+        anio: '2022',
+        desc: 'Relevamiento, determinaci&oacute;n de necesidades de inversi&oacute;n y mantenimiento y evaluaci&oacute;n econ&oacute;mica.',
+        icon: paises.get('panama')
+      },{ 
+        titulo: 'Estudio de preinversi&oacute;n de la Variante Aserradero',
+        pais: 'Per&uacute;',
+        anio: '2022',
+        desc: 'Elaboraci&oacute;n del estudio a nivel de perfil de las obras para la reconstrucci&oacute;n de la Variante Aserradero.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Evaluaci&oacute;n ex post en Rutas Nacionales 1 y 7',
+        pais: 'Hait&iacute;',
+        anio: '2023',
+        desc: 'Verificaci&oacute;n de labores ejecutadas y evaluaci&oacute;n t&eacute;cnico-econ&oacute;mica de los resultados.',
+        icon: paises.get('haiti')
+      },{ 
+        titulo: 'Evaluaci&oacute;n ex ante de caminos rurales en Hait&iacute; ',
+        pais: 'Hait&iacute;',
+        anio: '2023',
+        desc: 'Evaluaci&oacute;n t&eacute;cnico-econ&oacute;mica ex-ante de caminos rurales y establecimiento de l&iacute;nea de base y objetivos.',
+        icon: paises.get('haiti')
+      },{ 
+        titulo: 'Evaluaci&oacute;n ex ante de proyectos de mantenimiento peri&oacute;dico',
+        pais: 'Hait&iacute;',
+        anio: '2023',
+        desc: 'Evaluaci&oacute;n t&eacute;cnico-econ&oacute;mica de las intervenciones en las rutas 4, 6 y el puente Rouyonne.',
+        icon: paises.get('haiti')
+      },{ 
+        titulo: 'Capacitaci&oacute;n en herramienta para la gesti&oacute;n de contratos',
+        pais: 'Hait&iacute;',
+        anio: '2023',
+        desc: 'Capacitaci&oacute;n, mejoras y acompa&ntilde;amiento en el uso de la herramienta gesti&oacute;n de contratos de obra.',
+        icon: paises.get('haiti')
+      },{ 
+        titulo: 'Dise&ntilde;o de pre-losas para puentes',
+        pais: 'Ghana',
+        anio: '2023',
+        desc: 'Ajuste al dise&ntilde;o de las pre-losas para los puentes Kuula, Red Volta y White Volta.',
+        icon: paises.get('bolivia')
+      },{ 
+        titulo: 'Plan de obras para la Red Rural de Chontales',
+        pais: 'Nicaragua',
+        anio: '2024',
+        desc: 'Elaboraci&oacute;n de un plan quinquenal de obras para 1.500 km de Red Vial Rural.',
+        icon: paises.get('bolivia')
+      },{ 
+        titulo: 'Estudios varios de ingenier&iacute;a para Puente Santa',
+        pais: 'Per&uacute;',
+        anio: '2024',
+        desc: 'Ensayos de materiales, dise&ntilde;o de pavimento, estudio de seguridad vial y presupuesto de obras.',
+        icon: paises.get('peru')
+      },{ 
+        titulo: 'Estudio de tr&aacute;fico en ruta Panamericana',
+        pais: 'Per&uacute;',
+        anio: '2024',
+        desc: 'Conteos vehiculares, encuestas O-D, velocidades, censos de carga, proyecciones de tr&aacute;fico y c&aacute;lculo de los ESALs.',
+        icon: paises.get('peru')
+      }
+    ];
+
+    const anios_p = [
+      { 
+        anio: '2008', 
+        paises: [ 
+          { p: 'Per&uacute;', i: paises.get('peru') }, 
+          { p: 'Argentina', i: paises.get('argentina') },
+          { p: 'Panam&aacute;', i: paises.get('panama') },
+        ] 
+      },{
+        anio: '2009', 
+        paises: [ 
+          { p: 'B&eacute;lice', i: paises.get('belice') }, 
+          { p: 'Hait&iacute;', i: paises.get('haiti') },
+          { p: 'Guatemala', i: paises.get('guatemala') },
+        ] 
+      },{
+        anio: '2010', 
+        paises: [ 
+          { p: 'Rep&uacute;blica Dominicana', i: paises.get('rep_dominicana') }, 
+          { p: 'El Salvador', i: paises.get('el_salvador') },
+          { p: 'M&eacute;xico', i: paises.get('mexico') },
+        ] 
+      },{
+        anio: '2012', 
+        paises: [ 
+          { p: 'Per&uacute;', i: paises.get('peru') }, 
+        ] 
+      },{
+        anio: '2013', 
+        paises: [ 
+          { p: 'Per&uacute;', i: paises.get('peru') }, 
+        ] 
+      },{
+        anio: '2014', 
+        paises: [ 
+          { p: 'Per&uacute;', i: paises.get('peru') }, 
+        ] 
+      },{
+        anio: '2015', 
+        paises: [ 
+          { p: 'Rep&uacute;blica Dominicana', i: paises.get('rep_dominicana') }, 
+          { p: 'Per&uacute;', i: paises.get('peru') }, 
+        ] 
+      },{
+        anio: '2016', 
+        paises: [ 
+          { p: 'Uruguay', i: paises.get('uruguay') }, 
+          { p: 'Ecuador', i: paises.get('ecuador') },
+          { p: 'Hait&iacute;', i: paises.get('haiti') },
+        ] 
+      },{
+        anio: '2017', 
+        paises: [ 
+          { p: 'Per&uacute;', i: paises.get('peru') }, 
+          { p: 'Ecuador', i: paises.get('ecuador') },
+          { p: 'Bolivia', i: paises.get('bolivia') },
+        ] 
+      },{
+        anio: '2018', 
+        paises: [ 
+          { p: 'Hait&iacute;', i: paises.get('haiti') }, 
+          { p: 'Bolivia', i: paises.get('bolivia') },
+          { p: 'Ecuador', i: paises.get('ecuador') },
+        ] 
+      },{
+        anio: '2019', 
+        paises: [ 
+          { p: 'Bolivia', i: paises.get('bolivia') }, 
+          { p: 'Per&uacute;', i: paises.get('peru') },
+          { p: 'Hait&iacute;', i: paises.get('haiti') },
+        ] 
+      },{
+        anio: '2020', 
+        paises: [ 
+          { p: 'Per&uacute;', i: paises.get('peru') }, 
+          { p: 'Rep&uacute;blica Dominicana', i: paises.get('rep_dominicana') },
+          { p: 'Hait&iacute;', i: paises.get('haiti') },
+        ] 
+      },{
+        anio: '2021', 
+        paises: [ 
+          { p: 'Panam&aacute;', i: paises.get('panama') }, 
+          { p: 'Per&uacute;', i: paises.get('peru') },
+          { p: 'Hait&iacute;', i: paises.get('haiti') },
+        ] 
+      },{
+        anio: '2022', 
+        paises: [ 
+          { p: 'Ghana', i: paises.get('ghana') }, 
+          { p: 'Hait&iacute;', i: paises.get('haiti') },
+          { p: 'Panam&aacute;', i: paises.get('panama') },
+          { p: 'Per&uacute;', i: paises.get('peru') },
+        ] 
+      },{
+        anio: '2023', 
+        paises: [ 
+          { p: 'Hait&iacute;', i: paises.get('haiti') }, 
+          { p: 'Ghana', i: paises.get('ghana') },
+        ] 
+      },{
+        anio: '2024', 
+        paises: [ 
+          { p: 'Nicaragua', i: paises.get('nicaragua') }, 
+          { p: 'Per&uacute;', i: paises.get('peru') },
+        ] 
+      }
+    ];
+
+    function cargarAnio( anio ){
+      let htmlPro = '';
+      datos
+      .filter( f => f.anio == ''.concat(anio) )
+      .forEach( p => {
+        htmlPro += `<div class="mb-4 p-4 px-8 flex flex-col w-full items-start justify-center bg-white button-shadow rounded-md text-gray-500">
+          <span class="text-dark text-xl font-bold">${p.titulo}</span>
+          <div class="flex my-1 items-center w-full">
+            <img src="assets/images/flags/${p.icon}" class="me-2" style="height: 14px"> 
+            <span class="w-1/4">${p.pais}</span>
+            <img src="assets/images/icons/clock.svg" class="me-2" style="height: 16px">
+            <span>${p.anio}</span>
+          </div>
+          ${p.desc}
+        </div>`;
+      });
+
+      $('.proyectos').html(htmlPro);
+    }
+
+    function generateTimeYears( anios, htmlClass ){
+      let htmlAnios = '';
+      anios_p
+      .filter( f => anios.indexOf( f.anio ) > -1)
+      .forEach( a => {
+        htmlAnios += `<div class="flex flex-col items-center justify-center">
+            <div class="cursor-pointer relative rounded-full p-1 flex items-center justify-center mb-3 event-anio" data='${a.anio}' onClick="selectAnio(${a.anio})">
+              <span class="rounded-full inline-block bg-primary z-10" style="height: 15px; width: 15px;"></span>
+              <div class="absolute inset-0 rounded-full border border-primary bg-white transition-transform duration-150 bullet-${a.anio}"></div>
+            </div>
+
+            <a class="block mt-2 lg:mt-0 cursor-pointer event-anio" data='${a.anio}' onClick="selectAnio(${a.anio})"><span class="text-3xl font-bold lg:font-normal lg:text-xl text-gray-500 text-${a.anio}">${ a.anio }</span></a>
+            <div class="flex flex-col items-start mt-4 lg:mt-2" style='height:100px'>
+              ${ getCountries( a.paises ) }
+            </div>
+          </div>\n`;
+      });
+
+      $(htmlClass).html(htmlAnios);
+    }
+
+    function getCountries( countries ){
+      let countriesItem = '';
+      countries.forEach((c) => {
+        countriesItem += `<div class="flex items-center mx-2 my-2 lg:my-1 text-gray-500 text-2xl lg:text-sm">
+              <img src="assets/images/flags/${c.i}" class="h-18px me-2 lg:me-1 lg:h-12px"/>
+              <span class="lg:leading-4 w-full lg:max-w-90px">${c.p}</span>
+            </div> \n`;
+      });
+
+      return countriesItem;
+    }
+
+    function selectAnio( anio ){
+      anioSelected = anio;
+      removeAll();
+      cargarAnio( anio );
+      selectBulletEffect( anio );
+    }
+    
+    function selectBulletEffect( anio ){
+      const bulletControl = $(`.bullet-${ anio }`);
+      bulletControl.removeClass( 'scale-150 border-primary' );
+      bulletControl.addClass( 'scale-200 border-black' );
+    }
+
+    function removeAll(){
+      `${yearsTimeLine1},${yearsTimeLine2}`
+        .replace(`,${anioSelected}`, '')
+        .split(',')
+        .forEach( y => removeEffect(y) );
+    }
+    
+    function removeEffect( anio ){
+      const bulletControl = $(`.bullet-${ anio }`);
+      bulletControl.removeClass( 'border-black scale-200 scale-150' );
+      bulletControl.addClass( 'border-primary' );
+
+      const textControl = $(`.text-${ anio }`);
+      textControl.removeClass( 'text-black font-bold' );
+      textControl.addClass( 'text-dark' );
+    }
+
+    // Movil
+    let htmlCarMovil = '';
+      anios_p.forEach( ( a, i ) => {
+        htmlCarMovil += `<div class="hidden duration-700 ease-in-out" data-carousel-item${a.anio=='2024'?'="active"':''}>
+          <div class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" >
+            <div class="absolute w-full border-t border-primary top-0"></div>
+            <div class="w-full grid grid-flow-col justify-stretch items-start px-8 -mt-2.5 timeline-v-${i + 1}"></div>
+          </div>
+        </div>\n`;
+      });
+      $(".items-car-movil").html( htmlCarMovil );
+
+    $( ()=>{
+      generateTimeYears( yearsTimeLine1, '.timeline-1' );
+      generateTimeYears( yearsTimeLine2, '.timeline-2' );
+      
+      anios_p.forEach( ( a, i ) => {
+        generateTimeYears( a.anio, `.timeline-v-${i + 1}` );
+      });
+      
+
+      selectAnio( 2024 );
+
+      $(".event-anio").hover( 
+        function () {
+          let anio = $(this).attr('data');
+          console.log( anio, anioSelected );
+          if( anio == ''.concat( anioSelected ) ){
+            return;
+          }
+
+          const bulletControl = $(`.bullet-${ anio }`);
+          bulletControl.removeClass( 'border-primary' );
+          bulletControl.addClass( 'scale-150 border-black' );
+          
+          const textControl = $(`.text-${ anio }`);
+          textControl.addClass( 'text-black font-bold' );
+
+        }, 
+        function (){
+          let anio = $(this).attr('data');
+          console.log( anio, anioSelected );
+          if( anio == ''.concat( anioSelected ) ){
+            return;
+          }
+
+          const bulletControl = $(`.bullet-${anio}`);
+          bulletControl.addClass( 'border-primary' );
+          bulletControl.removeClass( 'scale-150 border-black' );
+
+          const textControl = $(`.text-${anio}`);
+          textControl.removeClass( 'text-black font-bold' );
+        } );
     });
   </script>
 </html>

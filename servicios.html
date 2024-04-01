@@ -1,5 +1,6 @@
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap"
@@ -40,8 +41,11 @@
               '13px': '13px',
               '14px': '14px',
               '15px': '15px',
+            },
+            backgroundImage:{
+              "desktop": "url( 'assets/images/bg_servicios.jpg' )",
+              "movil": "url( 'assets/images/bg_serv_movil.jpg' )",
             }
-
           },
         },
       };
@@ -64,7 +68,6 @@
         }
 
       .bg-titulo{
-        background-image: url( 'assets/images/bg_servicios.jpg' );
         background-color: #000000;
         background-repeat: no-repeat;
         background-size: cover;
@@ -81,48 +84,112 @@
 
     </style>
   </head>
-  <body class="bg-titulo">
+  <body class="bg-titulo bg-movil md:bg-desktop">
 
     <!-- Menu -->
-    <nav
-        class="fixed flex rounded-md bg-white py-4 px-12 top-20px left-20px right-20px justify-between items-center text-sm z-50 scroll-menu transition-all duration-300"
-      >
-        <img src="assets/images/logo.png" style="height: 50px" />
-        <div class="flex">
+    <nav class="fixed flex w-full md:w-auto md:rounded-md bg-white shadow-lg py-4 px-4 xl:px-12 md:top-20px md:left-20px md:right-20px justify-between items-center text-sm z-50 scroll-menu transition-all duration-300">
+        
+        <!-- Logo -->
+        <img src="assets/images/logo.png" class="hidden xl:inline" style="height: 50px" />
+        <img src="assets/images/icons/iso.png" class="inline xl:hidden" style="height: 50px" />
+        
+        <!-- Men&uacute; de escritorio -->
+        <div class="hidden md:flex">
           <a href="index.html"><span class="mx-4">Inicio</span></a>
           <span class="mx-4 text-primary">Servicios</span>
           <a href="proyectos.html"><span class="mx-4">Proyectos</span></a>
           <a href="nosotros.html"><span class="mx-4">Nosotros</span></a>
         </div>
+
+        <!-- Icono de men&uacute; para dispositivos m&oacute;viles -->
+        <div class="lg:hidden">
+          <button id="mobile-menu-button" class="block text-gray-500 hover:text-white focus:text-white focus:outline-none">
+            <img src="assets/images/icons/menu_mobile.svg" class="h-50px w-50px">
+          </button>
+        </div>
     </nav>
 
-    <div class="h-screen overscroll-none mx-24">
+    <!-- Men&uacute; desplegable para dispositivos m&oacute;viles -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-white z-50 transform transition-transform ease-in-out duration-600 -translate-x-full">
+      <div class="flex flex-col items-center">
+
+        <div class="flex justify-between w-full p-4 bg-white button-shadow">
+          <img src="assets/images/logo.png" class="inline xl:hidden" style="height: 50px" />
+          <a id="close-mobile-menu" class="pointer">
+            <img src="assets/images/btn_close.svg">
+          </a>
+        </div>
+
+        <div class="w-full p-6 border-b border-primary">
+          <a class="block text-xl text-dark py-3 flex w-full" href="index.html">
+            <span class="grow">Inicio</span>
+            <img  src="assets/images/icons/right_on.svg">
+          </a>
+          <a class="block text-xl text-dark py-3 flex w-full" href="servicios.html">
+            <span class="grow text-primary">Servicios</span>
+            <img  src="assets/images/icons/right_off.svg">
+          </a>
+          <a class="block text-xl text-dark py-3 flex w-full" href="proyectos.html">
+            <span class="grow">Proyectos</span>
+            <img  src="assets/images/icons/right_on.svg">
+          </a>
+          <a class="block text-xl text-dark py-3 flex w-full" href="nosotros.html">
+            <span class="grow">Nosotros</span>
+            <img  src="assets/images/icons/right_on.svg">
+          </a>
+        </div>
+
+        <div class="w-full p-6">
+          <span class="text-2xl font-bold text-dark block text-center">Cont&aacute;ctanos</span>
+          <div class="flex w-full items-start text-dark text-lg mt-5">
+            <img src="assets/images/icons/location-pr.svg" class="mt-1" />
+            <div class="flex flex-col w-full ml-4">
+              <span>Las Begonias 441 - Piso 9</span>
+              <span>San Isidro - Lima - Per&uacute;</span>
+            </div>
+          </div>
+
+          <div class="flex w-full items-start text-dark text-lg mt-6">
+            <img src="assets/images/icons/mail-pr.svg" class="mt-1" />
+            <div class="flex flex-col w-full ml-4">
+              <a href="mailto:contacto@abraco-ing.com">contacto@abraco-ing.com</a>
+            </div>
+          </div>
+
+          <div class="flex w-full items-start text-dark text-lg mt-6">
+            <img src="assets/images/icons/linkedin-pr.svg" class="mt-1" />
+            <div class="flex flex-col w-full ml-4">
+              <a href="https://www.linkedin.com/company/abraco-ing/" target="_blank">ABRACO Ingenier&iacute;a</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="h-screen overscroll-none mx-2 xl:mx-24">
 
       <!-- Titulo -->
-      <div class="pt-52 pb-32">
-        
+      <div class="pt-40 lg:pt-52 pb-24 xl:pb-32">
         <div class="flex flex-col items-center justify-center">
-          <span class="inline-block text-white text-center font-bold w-1/2 text-5xl">
+          <span class="inline-block text-white text-center font-bold w-full lg:w-2/3 xl:w-1/2 text-5xl">
             Somos aliados estrat&eacute;gicos
           </span>
           <span class="inline-block text-white text-center font-bold w-1/2 text-5xl">
             en cada fase del ciclo del proyecto
           </span>
         </div>
-
       </div>
   
-      <!-- Nuestros servicios -->
-      <div class="pb-24 px-12 flex">
+      <!-- Proyectos: Desktop -->
+      <div class="pb-24 px-2 xl:px-12 hidden lg:flex">
 
-        <div class="options px-10">
+        <div class="options px-6 xl:px-10">
 
           <div class="flex items-center justify-start">
             <div class="relative rounded-full p-1 flex items-center justify-center">
               <span class="rounded-full inline-block bg-primary z-10 plan" style="height: 18px; width: 18px;"></span>
               <div class="absolute inset-0 rounded-full border border-primary bg-black hover:border-white transition-transform duration-300 plan-div"></div>
             </div>
-
             <a href="javascript:void(0)" class="ms-4 text-white text-xl hover:text-primary transition-all duration-300 plan-text">Planificaci&oacute;n</a>
           </div>
           <div style="height: 60px;">
@@ -134,7 +201,6 @@
               <span class="rounded-full inline-block bg-primary z-10 pre" style="height: 18px; width: 18px;"></span>
               <div class="absolute inset-0 rounded-full border border-primary bg-black transition-transform duration-300 hover:scale-150 pre-div"></div>
             </div>
-
             <a href="javascript:void(0)" class="ms-4 text-white text-xl hover:text-primary transition-all duration-300 pre-text">Preinversi&oacute;n</a>
           </div>
           <div style="height: 60px;">
@@ -146,7 +212,6 @@
               <span class="rounded-full inline-block bg-primary z-10 dis" style="height: 18px; width: 18px;"></span>
               <div class="absolute inset-0 rounded-full border border-primary bg-black transition-transform duration-300 hover:scale-150 dis-div"></div>
             </div>
-
             <a href="javascript:void(0)" class="ms-4 text-white text-xl hover:text-primary transition-all duration-300 dis-text">Dise&ntilde;o</a>
           </div>
           <div style="height: 60px;">
@@ -158,7 +223,6 @@
               <span class="rounded-full inline-block bg-primary z-10 eje" style="height: 18px; width: 18px;"></span>
               <div class="absolute inset-0 rounded-full border border-primary bg-black transition-transform duration-300 hover:scale-150 eje-div"></div>
             </div>
-
             <a href="javascript:void(0)" class="ms-4 text-white text-xl hover:text-primary transition-all duration-300 eje-text">Ejecuci&oacute;n</a>
           </div>
           <div style="height: 60px;">
@@ -170,34 +234,32 @@
               <span class="rounded-full inline-block bg-primary z-10 ope" style="height: 18px; width: 18px;"></span>
               <div class="absolute inset-0 rounded-full border border-primary bg-black transition-transform duration-300 hover:scale-150 ope-div"></div>
             </div>
-
             <a href="javascript:void(0)" class="ms-4 text-white text-xl hover:text-primary transition-all duration-300 ope-text">Operaci&oacute;n</a>
           </div>
-
         </div>
 
         <!-- Plan content -->
-        <div class="content px-10 transition-all duration-300 plan-content">
-          <span class="block text-white text-2xl ms-6 mb-8">Elaboramos planes de infraestructura utilizando tecnología de vanguardia.</span>
+        <div class="content px-2 xl:px-10 transition-all duration-300 plan-content">
+          <span class="block text-white text-2xl ms-3 mb-8 xl:ms-6">Elaboramos planes de infraestructura utilizando tecnolog&iacute;a de vanguardia.</span>
 
           <div class="flex">
-            <div class="rounded-md overflow-auto relative m-6">
+            <div class="rounded-md overflow-auto relative m-3 xl:m-6">
               <img src="assets/images/plan-0.jpg" class="w-full">
               <div class="gradient flex p-6 items-end justify-start text-white">
-                <p class="text-lg">
-                  <span class="block text-2xl font-bold mb-2">Inventarios</span>
+                <p class="text-sm xl:text-lg">
+                  <span class="block text-xl xl:text-2xl font-bold mb-2">Inventarios</span>
                   Adaptados a las necesidades de cada proyecto o programa.
-                  Trazables, utilizando sistemas que permiten el seguimiento y auditoría.
+                  Trazables, utilizando sistemas que permiten el seguimiento y auditor&iacute;a.
                   </p>
               </div>
             </div>
             
-            <div class="rounded-md overflow-auto relative m-6">
+            <div class="rounded-md overflow-auto relative m-3 xl:m-6">
               <img src="assets/images/plan-1.jpg" class="w-full">
               <div class="gradient flex p-6 items-end justify-start text-white">
-                <p class="text-lg">
-                  <span class="block text-2xl font-bold mb-2">Planes de obra</span>
-                    Ejecutados en corto plazo con tecnologías adecuadas.
+                <p class="text-sm xl:text-lg">
+                  <span class="block text-xl xl:text-2xl font-bold mb-2">Planes de obra</span>
+                    Ejecutados en corto plazo con tecnolog&iacute;as adecuadas.
                     Precisos, asegurando el mejor inicio del ciclo de proyecto.
                   </p>
               </div>
@@ -206,59 +268,59 @@
         </div>
 
         <!-- Preinversion content -->
-        <div class="content px-10 transition-all duration-300 hidden pre-content">
+        <div class="content px-2 xl:px-10 transition-all duration-300 hidden pre-content">
           <span class="block text-white text-2xl ms-6 mb-8">Analizamos casos, identificamos estrategias, estimamos impacto y facilitamos decisiones.</span>
 
           <div class="flex">
-            <div class="rounded-md overflow-auto relative m-6">
+            <div class="rounded-md overflow-auto relative m-3 xl:m-6">
               <img src="assets/images/pre-0.jpg" class="w-full">
               <div class="gradient flex p-6 items-end justify-start text-white">
-                <p class="text-lg">
-                  <span class="block text-2xl font-bold mb-2">Estudios de preinversión</span>
-                  Innovadores, considerando alternativas de diseño estándar y no convencionales.
-                  Integrales, haciendo un análisis completo y multidimensional de viabilidad.
+                <p class="text-sm xl:text-lg">
+                  <span class="block text-xl xl:text-2xl font-bold mb-2">Estudios de preinversi&oacute;n</span>
+                  Innovadores, considerando alternativas de dise&ntilde;o est&aacute;ndar y no convencionales.
+                  Integrales, haciendo un an&aacute;lisis completo y multidimensional de viabilidad.
                   </p>
               </div>
             </div>
             
-            <div class="rounded-md overflow-auto relative m-6">
+            <div class="rounded-md overflow-auto relative m-3 xl:m-6">
               <img src="assets/images/pre-1.jpg" class="w-full">
               <div class="gradient flex p-6 items-end justify-start text-white">
-                <p class="text-lg">
-                  <span class="block text-2xl font-bold mb-2">Factibilidad de concesiones</span>
+                <p class="text-sm xl:text-lg">
+                  <span class="block text-xl xl:text-2xl font-bold mb-2">Factibilidad de concesiones</span>
                   Evaluadas profundamente, analizando riesgos para garantizar la viabilidad.
-                  Con aportes desde la ingeniería que den sostenibilidad financiera al proyecto.
+                  Con aportes desde la ingenier&iacute;a que den sostenibilidad financiera al proyecto.
                   </p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Diseño content -->
-        <div class="content px-10 transition-all duration-300 hidden dis-content">
+        <!-- Dise&ntilde;o content -->
+        <div class="content px-2 xl:px-10 transition-all duration-300 hidden dis-content">
           <span class="block text-white text-2xl ms-6 mb-8">Creamos proyectos con soluciones ajustadas a las necesidades y
             recursos disponibles.
             </span>
 
           <div class="flex">
-            <div class="rounded-md overflow-auto relative m-6">
+            <div class="rounded-md overflow-auto relative m-3 xl:m-6">
               <img src="assets/images/dis-0.jpg" class="w-full">
               <div class="gradient flex p-6 items-end justify-start text-white">
-                <p class="text-lg">
-                  <span class="block text-2xl font-bold mb-2">Diseño de proyectos</span>
+                <p class="text-sm xl:text-lg">
+                  <span class="block text-xl xl:text-2xl font-bold mb-2">Dise&ntilde;o de proyectos</span>
                   Adaptados a los requisitos y concebidos 	por profesionales de trayectoria.
                   Optimizados, siendo el costo-tiempo un elemento de referencia permanente.
                   </p>
               </div>
             </div>
             
-            <div class="rounded-md overflow-auto relative m-6">
+            <div class="rounded-md overflow-auto relative m-3 xl:m-6">
               <img src="assets/images/dis-1.jpg" class="w-full">
               <div class="gradient flex p-6 items-end justify-start text-white">
-                <p class="text-lg">
-                  <span class="block text-2xl font-bold mb-2">Asistencia técnica</span>
-                  Para profesionales que requieran apoyo en aspectos singulares del diseño.
-                  Dando soporte para abordar temas que requieran la participación de expertos.
+                <p class="text-sm xl:text-lg">
+                  <span class="block text-xl xl:text-2xl font-bold mb-2">Asistencia t&eacute;cnica</span>
+                  Para profesionales que requieran apoyo en aspectos singulares del dise&ntilde;o.
+                  Dando soporte para abordar temas que requieran la participaci&oacute;n de expertos.
                   </p>
               </div>
             </div>
@@ -266,28 +328,28 @@
         </div>
 
         <!-- Ejecucion content -->
-        <div class="content px-10 transition-all duration-300 hidden eje-content">
-          <span class="block text-white text-2xl ms-6 mb-8">Brindamos soporte técnico y diseñamos sistemas de seguimiento para la supervisión.</span>
+        <div class="content px-2 xl:px-10 transition-all duration-300 hidden eje-content">
+          <span class="block text-white text-2xl ms-6 mb-8">Brindamos soporte t&eacute;cnico y dise&ntilde;amos sistemas de seguimiento para la supervisi&oacute;n.</span>
 
           <div class="flex">
-            <div class="rounded-md overflow-auto relative m-6">
+            <div class="rounded-md overflow-auto relative m-3 xl:m-6">
               <img src="assets/images/eje-0.jpg" class="w-full">
               <div class="gradient flex p-6 items-end justify-start text-white">
-                <p class="text-lg">
-                  <span class="block text-2xl font-bold mb-2">Supervisión de obra</span>
-                  Rigurosa y trazable tanto en la calidad como en el cumplimiento de estándares.
+                <p class="text-sm xl:text-lg">
+                  <span class="block text-xl xl:text-2xl font-bold mb-2">Supervisi&oacute;n de obra</span>
+                  Rigurosa y trazable tanto en la calidad como en el cumplimiento de est&aacute;ndares.
                   Celosa gestora del tiempo para garantizar el cumplimiento de los cronogramas.
                   </p>
               </div>
             </div>
             
-            <div class="rounded-md overflow-auto relative m-6">
+            <div class="rounded-md overflow-auto relative m-3 xl:m-6">
               <img src="assets/images/eje-1.jpg" class="w-full">
               <div class="gradient flex p-6 items-end justify-start text-white">
-                <p class="text-lg">
-                  <span class="block text-2xl font-bold mb-2">Aplicaciones de seguimiento</span>
-                  Desarrolladas a medida según los recursos y necesidades de cada proyecto.
-                  Asistentes en la gestión, simplificando procesos para mejorar la eficiencia.
+                <p class="text-sm xl:text-lg">
+                  <span class="block text-xl xl:text-2xl font-bold mb-2">Aplicaciones de seguimiento</span>
+                  Desarrolladas a medida seg&uacute;n los recursos y necesidades de cada proyecto.
+                  Asistentes en la gesti&oacute;n, simplificando procesos para mejorar la eficiencia.
                   </p>
               </div>
             </div>
@@ -295,96 +357,303 @@
         </div>
 
         <!-- Operacion content -->
-        <div class="content px-10 transition-all duration-300 hidden ope-content">
-          <span class="block text-white text-2xl ms-6 mb-8">Recopilamos datos y creamos apps para la gestión, sustento y evidencia de impactos.</span>
+        <div class="content px-2 xl:px-10 transition-all duration-300 hidden ope-content">
+          <span class="block text-white text-2xl ms-6 mb-8">Recopilamos datos y creamos apps para la gesti&oacute;n, sustento y evidencia de impactos.</span>
 
           <div class="flex">
-            <div class="rounded-md overflow-auto relative m-6">
+            <div class="rounded-md overflow-auto relative m-3 xl:m-6">
               <img src="assets/images/ope-0.jpg" class="w-full">
               <div class="gradient flex p-6 items-end justify-start text-white">
-                <p class="text-lg">
-                  <span class="block text-2xl font-bold mb-2">Relevamiento de niveles de servicio</span>
+                <p class="text-sm xl:text-lg">
+                  <span class="block text-xl xl:text-2xl font-bold mb-2">Relevamiento de niveles de servicio</span>
                   Realizado de modo eficiente, trazable y en plazos reducidos.
                   Con trazabilidad completa, implementando sistemas que documentan cada paso.
                   </p>
               </div>
             </div>
             
-            <div class="rounded-md overflow-auto relative m-6">
+            <div class="rounded-md overflow-auto relative m-3 xl:m-6">
               <img src="assets/images/ope-1.jpg" class="w-full">
               <div class="gradient flex p-6 items-end justify-start text-white">
-                <p class="text-lg">
-                  <span class="block text-2xl font-bold mb-2">Aplicaciones de gestión</span>
-                  Desarrolladas para disponer de una herramienta de administración holística.
-                  Promotoras de la eficiencia como producto de la automatización de procesos.
+                <p class="text-sm xl:text-lg">
+                  <span class="block text-xl xl:text-2xl font-bold mb-2">Aplicaciones de gesti&oacute;n</span>
+                  Desarrolladas para disponer de una herramienta de administraci&oacute;n hol&iacute;stica.
+                  Promotoras de la eficiencia como producto de la automatizaci&oacute;n de procesos.
                   </p>
               </div>
             </div>
           </div>
         </div>
 
+      </div>
 
+      <!-- Proyectos: Movil -->
+      <div class="px-2 xl:px-12 flex flex-col lg:hidden proy-movil">
+        
+        <!-- Planificacion -->
+        <div class="grid grid-cols-[auto,1fr] gap-4">
+          <div class="h-auto grow">
+            <span class="ms-4 text-3xl font-bold text-primary text-center w-full block">Planificaci&oacute;n</span>
+            <p class="text-white text-2xl m-6">
+              Elaboramos planes de infraestructura utilizando tecnolog&iacute;a de vanguardia.
+            </p>
+          </div>
+
+          <div class="flex items-start relative h-auto">
+            <div class="absolute border-l-2 border-primary h-full left-1/2">&nbsp;</div>
+            <div class="relative rounded-full p-4 flex items-center justify-center">
+              <span class="rounded-full inline-block bg-primary z-10 plan" style="height: 18px; width: 18px;"></span>
+              <div class="absolute inset-0 rounded-full border bg-dark border-white"></div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="rounded-md overflow-auto relative">
+            <img src="assets/images/plan-0.jpg" class="w-full">
+            <div class="gradient flex p-6 items-end justify-start text-white">
+              <p class="text-sm xl:text-lg">
+                <span class="block text-xl xl:text-2xl font-bold mb-2">Inventarios</span>
+                Adaptados a las necesidades de cada proyecto o programa.
+                Trazables, utilizando sistemas que permiten el seguimiento y auditor&iacute;a.
+                </p>
+            </div>
+          </div>
+          
+          <div class="rounded-md overflow-auto relative mt-4">
+            <img src="assets/images/plan-1.jpg" class="w-full">
+            <div class="gradient flex p-6 items-end justify-start text-white">
+              <p class="text-sm xl:text-lg">
+                <span class="block text-xl xl:text-2xl font-bold mb-2">Planes de obra</span>
+                  Ejecutados en corto plazo con tecnolog&iacute;as adecuadas.
+                  Precisos, asegurando el mejor inicio del ciclo de proyecto.
+                </p>
+            </div>
+          </div>
+        </div>
+        <!-- /Fin planificacion -->
+        
+        <!-- Pre inversion -->
+        <div class="grid grid-cols-[auto,1fr] gap-4">
+          <div class="h-auto grow">
+            <span class="ms-4 pt-8 text-3xl font-bold text-primary text-center w-full block">Pre inversi&oacute;n</span>
+            <p class="text-white text-2xl m-6">
+              Analizamos casos, identificamos estrategias, estimamos impacto y facilitamos decisiones.
+            </p>
+          </div>
+
+          <div class="flex items-start relative h-auto">
+            <div class="absolute border-l-2 border-primary h-full left-1/2">&nbsp;</div>
+            <div class="relative mt-7 rounded-full p-4 flex items-center justify-center">
+              <span class="rounded-full inline-block bg-primary z-10 plan" style="height: 18px; width: 18px;"></span>
+              <div class="absolute inset-0 rounded-full border bg-black border-white"></div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="rounded-md overflow-auto relative">
+            <img src="assets/images/pre-0.jpg" class="w-full">
+            <div class="gradient flex p-6 items-end justify-start text-white">
+              <p class="text-sm xl:text-lg">
+                <span class="block text-xl xl:text-2xl font-bold mb-2">Estudios de preinversi&oacute;n</span>
+                Innovadores, considerando alternativas de dise&ntilde;o est&aacute;ndar y no convencionales.
+                Integrales, haciendo un an&aacute;lisis completo y multidimensional de viabilidad.
+                </p>
+            </div>
+          </div>
+          
+          <div class="rounded-md overflow-auto relative mt-4">
+            <img src="assets/images/pre-1.jpg" class="w-full">
+            <div class="gradient flex p-6 items-end justify-start text-white">
+              <p class="text-sm xl:text-lg">
+                <span class="block text-xl xl:text-2xl font-bold mb-2">Factibilidad de concesiones</span>
+                Evaluadas profundamente, analizando riesgos para garantizar la viabilidad.
+                Con aportes desde la ingenier&iacute;a que den sostenibilidad financiera al proyecto.
+                </p>
+            </div>
+          </div>
+        </div>
+        <!-- /Fin Pre inversion -->
+
+        <!-- Disenio -->
+        <div class="grid grid-cols-[auto,1fr] gap-4">
+          <div class="h-auto grow">
+            <span class="ms-4 pt-8 text-3xl font-bold text-primary text-center w-full block">Dise&ntilde;o</span>
+            <p class="text-white text-2xl m-6">
+              Creamos proyectos con soluciones ajustadas a las necesidades y recursos disponibles.
+            </p>
+          </div>
+
+          <div class="flex items-start relative h-auto">
+            <div class="absolute border-l-2 border-primary h-full left-1/2">&nbsp;</div>
+            <div class="relative mt-7 rounded-full p-4 flex items-center justify-center">
+              <span class="rounded-full inline-block bg-primary z-10 plan" style="height: 18px; width: 18px;"></span>
+              <div class="absolute inset-0 rounded-full border bg-black border-white"></div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="rounded-md overflow-auto relative">
+            <img src="assets/images/dis-0.jpg" class="w-full">
+            <div class="gradient flex p-6 items-end justify-start text-white">
+              <p class="text-sm xl:text-lg">
+                <span class="block text-xl xl:text-2xl font-bold mb-2">Dise&ntilde;o de proyectos</span>
+                Adaptados a los requisitos y concebidos 	por profesionales de trayectoria.
+                Optimizados, siendo el costo-tiempo un elemento de referencia permanente.
+                </p>
+            </div>
+          </div>
+          
+          <div class="rounded-md overflow-auto relative mt-3">
+            <img src="assets/images/dis-1.jpg" class="w-full">
+            <div class="gradient flex p-6 items-end justify-start text-white">
+              <p class="text-sm xl:text-lg">
+                <span class="block text-xl xl:text-2xl font-bold mb-2">Asistencia t&eacute;cnica</span>
+                Para profesionales que requieran apoyo en aspectos singulares del dise&ntilde;o.
+                Dando soporte para abordar temas que requieran la participaci&oacute;n de expertos.
+                </p>
+            </div>
+          </div>
+        </div>
+        <!-- /Fin Disenio -->
+
+        <!-- Ejecucion -->
+        <div class="grid grid-cols-[auto,1fr] gap-4">
+          <div class="h-auto grow">
+            <span class="ms-4 pt-8 text-3xl font-bold text-primary text-center w-full block">Ejecuci&oacute;n</span>
+            <p class="text-white text-2xl m-6">
+              Brindamos soporte t&eacute;cnico y dise&ntilde;amos sistemas de seguimiento para la supervisi&oacute;n.
+            </p>
+          </div>
+
+          <div class="flex items-start relative h-auto">
+            <div class="absolute border-l-2 border-primary h-full left-1/2">&nbsp;</div>
+            <div class="relative mt-7 rounded-full p-4 flex items-center justify-center">
+              <span class="rounded-full inline-block bg-primary z-10 plan" style="height: 18px; width: 18px;"></span>
+              <div class="absolute inset-0 rounded-full border bg-black border-white"></div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="rounded-md overflow-auto relative">
+            <img src="assets/images/eje-0.jpg" class="w-full">
+            <div class="gradient flex p-6 items-end justify-start text-white">
+              <p class="text-sm xl:text-lg">
+                <span class="block text-xl xl:text-2xl font-bold mb-2">Supervisi&oacute;n de obra</span>
+                Rigurosa y trazable tanto en la calidad como en el cumplimiento de est&aacute;ndares.
+                Celosa gestora del tiempo para garantizar el cumplimiento de los cronogramas.
+                </p>
+            </div>
+          </div>
+          
+          <div class="rounded-md overflow-auto relative mt-3">
+            <img src="assets/images/eje-1.jpg" class="w-full">
+            <div class="gradient flex p-6 items-end justify-start text-white">
+              <p class="text-sm xl:text-lg">
+                <span class="block text-xl xl:text-2xl font-bold mb-2">Aplicaciones de seguimiento</span>
+                Desarrolladas a medida seg&uacute;n los recursos y necesidades de cada proyecto.
+                Asistentes en la gesti&oacute;n, simplificando procesos para mejorar la eficiencia.
+                </p>
+            </div>
+          </div>
+        </div>
+        <!-- /Fin Ejecucion -->
+
+        <!-- Operacion -->
+        <div class="grid grid-cols-[auto,1fr] gap-4">
+          <div class="h-auto grow">
+            <span class="ms-4 pt-8 text-3xl font-bold text-primary text-center w-full block">Operaci&oacute;n</span>
+            <p class="text-white text-2xl m-6">
+              Recopilamos datos y creamos apps para la gesti&oacute;n, sustento y evidencia de impactos.
+            </p>
+          </div>
+
+          <div class="flex items-start relative h-auto">
+            <div class="absolute border-l-2 border-primary h-full left-1/2">&nbsp;</div>
+            <div class="relative mt-7 rounded-full p-4 flex items-center justify-center">
+              <span class="rounded-full inline-block bg-primary z-10 plan" style="height: 18px; width: 18px;"></span>
+              <div class="absolute inset-0 rounded-full border bg-black border-white"></div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="rounded-md overflow-auto relative">
+            <img src="assets/images/ope-0.jpg" class="w-full">
+            <div class="gradient flex p-6 items-end justify-start text-white">
+              <p class="text-sm xl:text-lg">
+                <span class="block text-xl xl:text-2xl font-bold mb-2">Relevamiento de niveles de servicio</span>
+                Realizado de modo eficiente, trazable y en plazos reducidos.
+                Con trazabilidad completa, implementando sistemas que documentan cada paso.
+                </p>
+            </div>
+          </div>
+          
+          <div class="rounded-md overflow-auto relative mt-3">
+            <img src="assets/images/ope-1.jpg" class="w-full">
+            <div class="gradient flex p-6 items-end justify-start text-white">
+              <p class="text-sm xl:text-lg">
+                <span class="block text-xl xl:text-2xl font-bold mb-2">Aplicaciones de gesti&oacute;n</span>
+                Desarrolladas para disponer de una herramienta de administraci&oacute;n hol&iacute;stica.
+                Promotoras de la eficiencia como producto de la automatizaci&oacute;n de procesos.
+                </p>
+            </div>
+          </div>
+        </div>
+        <!-- /Fin Operacion -->
 
       </div>
   
       <!-- Contactanos -->
-      <div class="px-24 flex flex-col w-full items-center justify-center">
-        
-        <div class="border-t-2 border-primary rounded-md p-12 bg-white flex items-center justify-center w-full">
+      <div class="px-4 lg:px-12 xl:px-24 bg-black pt-8 button-shadow">
+        <div class="flex flex-col w-full px-0 xl:px-24 items-center justify-center">
+          <div class="border-t-2 border-primary rounded-md p-6 px-0 lg:px-12 lg:p-12 bg-white flex items-center justify-center w-full">
+            
+            <div class="flex flex-col items-center justify-center w-full xl:w-5/6 lg:flex-row">
+              <div class="p-4 lg:p-4 xl:p-12">
+                <div class="flex flex-col justify-center items-center">
+                  <span class="text-xl font-bold text-dark">Cont&aacute;ctanos</span>
+                  <div class="flex w-full items-start text-dark text-lg mt-10">
+                    <img src="assets/images/icons/location-pr.svg" class="mt-1" />
+                    <div class="flex flex-col w-full ml-4">
+                      <span>Las Begonias 441 - Piso 9</span>
+                      <span>San Isidro - Lima - Per&uacute;</span>
+                    </div>
+                  </div>
 
-          <div class="flex items-center justify-center w-4/6">
-  
-            <div class="p-12">
+                  <div class="flex w-full items-start text-dark text-lg mt-6">
+                    <img src="assets/images/icons/mail-pr.svg" class="mt-1" />
+                    <div class="flex flex-col w-full ml-4">
+                      <a href="mailto:contacto@abraco-ing.com">contacto@abraco-ing.com</a>
+                    </div>
+                  </div>
 
-              <div class="flex flex-col justify-center items-center">
-                
-                <span class="text-xl font-bold text-dark">Cont&aacute;ctanos</span>
-                <div class="flex w-full items-start text-dark text-lg mt-10">
-                  <img src="assets/images/icons/location-pr.svg" class="mt-1">
-                  <div class="flex flex-col w-full ml-4">
-                    <span>Las Begonias 441 - Piso 9</span>
-                    <span>San Isidro - Lima - Per&uacute;</span>
+                  <div class="flex w-full items-start text-dark text-lg mt-6">
+                    <img src="assets/images/icons/linkedin-pr.svg" class="mt-1" />
+                    <div class="flex flex-col w-full ml-4">
+                      <a href="https://www.linkedin.com/company/abraco-ing/" target="_blank">ABRACO Ingenier&iacute;a</a>
+                    </div>
                   </div>
+
+                  <img src="assets/images/logo.png" class="my-10 h-70px lg:h-50px"/>
                 </div>
-    
-                <div class="flex w-full items-start text-dark text-lg mt-6">
-                  <img src="assets/images/icons/mail-pr.svg" class="mt-1">
-                  <div class="flex flex-col w-full ml-4">
-                    <a href="mailto:contacto@abraco-ing.com">contacto@abraco-ing.com</a>
-                  </div>
-                </div>
-    
-                <div class="flex w-full items-start text-dark text-lg mt-6">
-                  <img src="assets/images/icons/linkedin-pr.svg" class="mt-1">
-                  <div class="flex flex-col w-full ml-4">
-                    <a href="mailto:contacto@abraco-ing.com">ABRACO Ingeniería</a>
-                  </div>
-                </div>
-  
-                <img src="assets/images/logo.png" class="mt-10" style="height: 50px" />
               </div>
-  
-            </div>
-  
-            <div class="grow p-12">
-              <div class="button-shadow">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984.7414931551073!2d-77.02526268836435!3d-12.092181376826098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c864f0fec401%3A0xbe840942ec3d3dc2!2sC.%20Las%20Begonias%20445%2C%20San%20Isidro%2015046!5e0!3m2!1ses-419!2spe!4v1711340082831!5m2!1ses-419!2spe" 
-                    height="450" 
-                    style="border:0; width: 100%;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+              <div class="lg:grow lg:w-auto m-0 lg:m-8 md:m-4 button-shadow w-full">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.280789146565!2d-77.02673612387625!3d-12.09291988814753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c864f07ff80d%3A0x126025ead9936d22!2sC.%20Las%20Begonias%20441%2C%20San%20Isidro%2015046!5e0!3m2!1ses-419!2spe!4v1711947447792!5m2!1ses-419!2spe" 
+                  height="450"
+                  style="border: 0; width: 100%"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     
-
       <!-- Footer -->
-      <div class="px-24 flex flex-col w-full items-center justify-center py-8 text-slate-500">
-        &copy; ABRACO Ingenier&iacute;a  | Todos los derechos reservados.
+      <div class="lg:px-24 flex flex-col w-full text-center items-center justify-center py-8 text-slate-500">
+        &copy; ABRACO Ingenier&iacute;a  <br> Todos los derechos reservados.
       </div>
 
     </div>
@@ -392,24 +661,49 @@
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <script>
     const menuElement = document.querySelector('.scroll-menu');
 
       window.addEventListener('scroll', function() {
       if (window.scrollY > 0) {
-        menuElement.classList.remove( 'rounded-md', 'top-20px', 'left-20px', 'right-20px' );
-        menuElement.classList.add( 'top-0', 'left-0', 'right-0', 'rounded-none', 'button-shadow' );
+        menuElement.classList.remove( 'xl:rounded-md', 'xl:top-20px', 'xl:left-20px', 'xl:right-20px' );
+        menuElement.classList.add( 'xl:top-0', 'xl:left-0', 'xl:right-0', 'xl:rounded-none', 'xl:button-shadow' );
       } else {
-        menuElement.classList.add( 'rounded-md', 'top-20px', 'left-20px', 'right-20px' );
-        menuElement.classList.remove( 'top-0', 'left-0', 'right-0', 'rounded-none', 'button-shadow' );
+        menuElement.classList.add( 'xl:rounded-md', 'xl:top-20px', 'xl:left-20px', 'xl:right-20px' );
+        menuElement.classList.remove( 'xl:top-0', 'xl:left-0', 'xl:right-0', 'xl:rounded-none', 'xl:button-shadow' );
       }
+    });
+
+    // Mobile button
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('-translate-x-full');
+    });
+
+    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+    closeMobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.add('-translate-x-full');
     });
 
     const animations = [ '.plan', '.pre', '.dis', '.eje', '.ope' ];
     animations.forEach( v => setAnimations( v ) );
 
-    startAnimation( '.plan' );
+    const urlParams = new URLSearchParams(window.location.search);
+    const serv = urlParams.get('serv');
+
+    if(serv == null || !animations.some( a => a == '.'.concat(serv.toLowerCase() ) ) ){
+      startAnimation( '.plan' );
+    }else{
+      startAnimation(`.${serv}`);
+    }
+    
+
 
     function startAnimation( control ){
       // Items

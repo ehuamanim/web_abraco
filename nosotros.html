@@ -1,5 +1,6 @@
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap"
@@ -84,41 +85,108 @@
   <body class="bg-light">
 
     <!-- Menu -->
-    <nav
-        class="fixed flex button-shadow rounded-md bg-white py-4 px-12 top-20px left-20px right-20px justify-between items-center text-sm z-50 scroll-menu transition-all duration-300"
-      >
-        <img src="assets/images/logo.png" style="height: 50px" />
-        <div class="flex">
+    <nav class="fixed flex w-full md:w-auto md:rounded-md bg-white shadow-lg py-4 px-4 xl:px-12 md:top-20px md:left-20px md:right-20px justify-between items-center text-sm z-50 scroll-menu transition-all duration-300">
+        
+        <!-- Logo -->
+        <img src="assets/images/logo.png" class="hidden xl:inline" style="height: 50px" />
+        <img src="assets/images/icons/iso.png" class="inline xl:hidden" style="height: 50px" />
+
+        <!-- Men&uacute; de escritorio -->
+        <div class="hidden md:flex">
           <a href="index.html"><span class="mx-4">Inicio</span></a>
           <a href="servicios.html"><span class="mx-4">Servicios</span></a>
           <a href="proyectos.html"><span class="mx-4">Proyectos</span></a>
           <span class="mx-4 text-primary">Nosotros</span>
         </div>
+
+        <!-- Icono de men&uacute; para dispositivos m&oacute;viles -->
+        <div class="lg:hidden">
+          <button id="mobile-menu-button" class="block text-gray-500 hover:text-white focus:text-white focus:outline-none">
+            <img src="assets/images/icons/menu_mobile.svg" class="h-50px w-50px">
+          </button>
+        </div>
     </nav>
+
+    <!-- Men&uacute; desplegable para dispositivos m&oacute;viles -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-white z-50 transform transition-transform ease-in-out duration-600 -translate-x-full">
+      <div class="flex flex-col items-center">
+
+        <div class="flex justify-between w-full p-4 bg-white button-shadow">
+          <img src="assets/images/logo.png" class="inline xl:hidden" style="height: 50px" />
+          <a id="close-mobile-menu" class="pointer">
+            <img src="assets/images/btn_close.svg">
+          </a>
+        </div>
+
+        <div class="w-full p-6 border-b border-primary">
+          <a class="block text-xl text-dark py-3 flex w-full" href="index.html">
+            <span class="grow">Inicio</span>
+            <img  src="assets/images/icons/right_on.svg">
+          </a>
+          <a class="block text-xl text-dark py-3 flex w-full" href="servicios.html">
+            <span class="grow">Servicios</span>
+            <img  src="assets/images/icons/right_on.svg">
+          </a>
+          <a class="block text-xl text-dark py-3 flex w-full" href="proyectos.html">
+            <span class="grow">Proyectos</span>
+            <img  src="assets/images/icons/right_on.svg">
+          </a>
+          <a class="block text-xl text-dark py-3 flex w-full" href="nosotros.html">
+            <span class="grow text-primary">Nosotros</span>
+            <img  src="assets/images/icons/right_off.svg">
+          </a>
+        </div>
+
+        <div class="w-full p-6">
+          <span class="text-2xl font-bold text-dark block text-center">Cont&aacute;ctanos</span>
+          <div class="flex w-full items-start text-dark text-lg mt-5">
+            <img src="assets/images/icons/location-pr.svg" class="mt-1" />
+            <div class="flex flex-col w-full ml-4">
+              <span>Las Begonias 441 - Piso 9</span>
+              <span>San Isidro - Lima - Per&uacute;</span>
+            </div>
+          </div>
+
+          <div class="flex w-full items-start text-dark text-lg mt-6">
+            <img src="assets/images/icons/mail-pr.svg" class="mt-1" />
+            <div class="flex flex-col w-full ml-4">
+              <a href="mailto:contacto@abraco-ing.com">contacto@abraco-ing.com</a>
+            </div>
+          </div>
+
+          <div class="flex w-full items-start text-dark text-lg mt-6">
+            <img src="assets/images/icons/linkedin-pr.svg" class="mt-1" />
+            <div class="flex flex-col w-full ml-4">
+              <a href="https://www.linkedin.com/company/abraco-ing/" target="_blank">ABRACO Ingenier&iacute;a</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="h-screen overscroll-none">
 
       <!-- Titulo -->
-      <div class="w-full bg-[url('assets/images/bg_nosotros.jpg')] bg-cover bg-no-repeat bg-bottom w-full relative">
-        <div class="pt-52 pb-80 px-48" style="background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(174,80,20,0.37) 25%, rgba(174,80,20,0.37) 50%, rgba(255,255,255,1) 75%);">
+      <div class="w-full lg:bg-[url('assets/images/bg_nosotros.jpg')] bg-cover bg-no-repeat bg-bottom w-full relative">
+        <div class="pt-32 pb-6 lg:pb-80 px-4 lg:pt-52 lg:px-48" style="background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(174,80,20,0.37) 25%, rgba(174,80,20,0.37) 50%, rgba(255,255,255,1) 75%);">
           <div class="flex flex-col items-center justify-center z-20">
-          <span class="inline-block text-primary text-center font-bold w-1/2 text-5xl">
-            Somos ABRACO Ingeniería
+          <span class="inline-block text-primary text-center font-bold w-full lg:w-1/2 text-5xl">
+            Somos ABRACO Ingenier&iacute;a
           </span>
   
-            <p class="text-xl my-10 px-20">
-              Fundada en Perú en 2008, ABRACO Ingeniería responde a las necesidades del sector infraestructura en Latinoamérica con servicios profesionales de alta calidad.
+            <p class="px-8 text-center text-xl my-10 lg:px-20">
+              Fundada en Per&uacute; en 2008, ABRACO Ingenier&iacute;a responde a las necesidades del sector infraestructura en Latinoam&eacute;rica con servicios profesionales de alta calidad.
             </p>
   
             <div class="rounded-md bg-white p-4">
-              <div class="flex justify-between w-full">
+              <div class="flex flex-col lg:flex-row justify-between w-full">
                 <div class="p-6">
                   <div class="flex mb-4">
                     <img src="assets/images/icons/line-chart-up-arrow.svg">
                     <span class="ms-2 text-xl font-bold">Misi&oacute;n</span>
                   </div>
                   <p>
-                    Brindar soluciones innovadoras y personalizadas en todas las fases de proyecto, con tecnologías de vanguardia y el equipo profesional adecuado.
+                    Brindar soluciones innovadoras y personalizadas en todas las fases de proyecto, con tecnolog&iacute;as de vanguardia y el equipo profesional adecuado.
                   </p>
                 </div>
     
@@ -138,15 +206,15 @@
                     <span class="ms-2 text-xl font-bold">Valores</span>
                   </div>
                   <p>
-                    Nos involucramos con las necesidades de nuestros clientes y disfrutamos de enfrentar los desafíos que implica resolverlas.
+                    Nos involucramos con las necesidades de nuestros clientes y disfrutamos de enfrentar los desaf&iacute;os que implica resolverlas.
                   </p>
                 </div>
               </div>
   
               <div class="flex p-6">
-                <div class="flex justify-start items-start">
+                <div class="flex flex-col lg:flex-row justify-start items-start">
                   <img src="assets/images/icons/web.svg">
-                  <span class="ms-2">La cultura de la empresa, centrada en el compromiso, la actitud positiva y la innovación, genera una experiencia excepcional para el cliente, lo que nos convierte en un buen aliado estratégico para cada fase del ciclo de proyecto.</span>
+                  <span class="ms-2">La cultura de la empresa, centrada en el compromiso, la actitud positiva y la innovaci&oacute;n, genera una experiencia excepcional para el cliente, lo que nos convierte en un buen aliado estrat&eacute;gico para cada fase del ciclo de proyecto.</span>
                 </div>
               </div>
             </div>
@@ -155,65 +223,58 @@
       </div>
       
       <!-- Contactanos -->
-      <div class="px-24 bg-black">
-        <div class="px-24 flex flex-col w-full items-center justify-center">
+      <div class="px-4 lg:px-12 xl:px-24 bg-black pt-8 button-shadow">
+        <div class="flex flex-col w-full px-0 xl:px-24 items-center justify-center">
+          <div class="border-t-2 border-primary rounded-md p-6 px-0 lg:px-12 lg:p-12 bg-white flex items-center justify-center w-full">
             
-          <div class="border-t-2 border-primary rounded-md p-12 bg-white flex items-center justify-center w-full">
-    
-            <div class="flex items-center justify-center w-4/6">
-    
-              <div class="p-12">
-    
+            <div class="flex flex-col items-center justify-center w-full xl:w-5/6 lg:flex-row">
+              <div class="p-4 lg:p-4 xl:p-12">
                 <div class="flex flex-col justify-center items-center">
-                  
                   <span class="text-xl font-bold text-dark">Cont&aacute;ctanos</span>
                   <div class="flex w-full items-start text-dark text-lg mt-10">
-                    <img src="assets/images/icons/location-pr.svg" class="mt-1">
+                    <img src="assets/images/icons/location-pr.svg" class="mt-1" />
                     <div class="flex flex-col w-full ml-4">
                       <span>Las Begonias 441 - Piso 9</span>
                       <span>San Isidro - Lima - Per&uacute;</span>
                     </div>
                   </div>
-      
+
                   <div class="flex w-full items-start text-dark text-lg mt-6">
-                    <img src="assets/images/icons/mail-pr.svg" class="mt-1">
+                    <img src="assets/images/icons/mail-pr.svg" class="mt-1" />
                     <div class="flex flex-col w-full ml-4">
                       <a href="mailto:contacto@abraco-ing.com">contacto@abraco-ing.com</a>
                     </div>
                   </div>
-      
+
                   <div class="flex w-full items-start text-dark text-lg mt-6">
-                    <img src="assets/images/icons/linkedin-pr.svg" class="mt-1">
+                    <img src="assets/images/icons/linkedin-pr.svg" class="mt-1" />
                     <div class="flex flex-col w-full ml-4">
-                      <a href="mailto:contacto@abraco-ing.com">ABRACO Ingeniería</a>
+                      <a href="https://www.linkedin.com/company/abraco-ing/" target="_blank">ABRACO Ingenier&iacute;a</a>
                     </div>
                   </div>
-    
-                  <img src="assets/images/logo.png" class="mt-10" style="height: 50px" />
+
+                  <img src="assets/images/logo.png" class="my-10 h-70px lg:h-50px"/>
                 </div>
-    
               </div>
-    
-              <div class="grow p-12">
-                <div class="button-shadow">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984.7414931551073!2d-77.02526268836435!3d-12.092181376826098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c864f0fec401%3A0xbe840942ec3d3dc2!2sC.%20Las%20Begonias%20445%2C%20San%20Isidro%2015046!5e0!3m2!1ses-419!2spe!4v1711340082831!5m2!1ses-419!2spe" 
-                      height="450" 
-                      style="border:0; width: 100%;" 
-                      allowfullscreen="" 
-                      loading="lazy" 
-                      referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+
+              <div class="lg:grow lg:w-auto m-0 lg:m-8 md:m-4 button-shadow w-full">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.280789146565!2d-77.02673612387625!3d-12.09291988814753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c864f07ff80d%3A0x126025ead9936d22!2sC.%20Las%20Begonias%20441%2C%20San%20Isidro%2015046!5e0!3m2!1ses-419!2spe!4v1711947447792!5m2!1ses-419!2spe" 
+                  height="450"
+                  style="border: 0; width: 100%"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>
-    
         </div>
       </div>
 
       <!-- Footer -->
-      <div class="px-24 bg-black">
-        <div class="px-24 flex flex-col w-full items-center justify-center py-8 text-slate-500">
-          &copy; ABRACO Ingenier&iacute;a  | Todos los derechos reservados.
+      <div class="px-4 lg:px-24 bg-black">
+        <div class="px-4 lg:px-24 flex flex-col w-full text-center items-center justify-center py-8 text-slate-500">
+          &copy; ABRACO Ingenier&iacute;a  <br> Todos los derechos reservados.
         </div>
       </div>
 
@@ -225,14 +286,29 @@
 
   <script>
     const menuElement = document.querySelector('.scroll-menu');
-      window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function() {
       if (window.scrollY > 0) {
-        menuElement.classList.remove( 'rounded-md', 'top-20px', 'left-20px', 'right-20px' );
-        menuElement.classList.add( 'top-0', 'left-0', 'right-0', 'rounded-none', 'button-shadow' );
+        menuElement.classList.remove( 'xl:rounded-md', 'xl:top-20px', 'xl:left-20px', 'xl:right-20px' );
+        menuElement.classList.add( 'xl:top-0', 'xl:left-0', 'xl:right-0', 'xl:rounded-none', 'xl:button-shadow' );
       } else {
-        menuElement.classList.add( 'rounded-md', 'top-20px', 'left-20px', 'right-20px' );
-        menuElement.classList.remove( 'top-0', 'left-0', 'right-0', 'rounded-none', 'button-shadow' );
+        menuElement.classList.add( 'xl:rounded-md', 'xl:top-20px', 'xl:left-20px', 'xl:right-20px' );
+        menuElement.classList.remove( 'xl:top-0', 'xl:left-0', 'xl:right-0', 'xl:rounded-none', 'xl:button-shadow' );
       }
+    });
+
+    // Mobile button
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('-translate-x-full');
+    });
+
+    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+    closeMobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.add('-translate-x-full');
     });
     
   </script>

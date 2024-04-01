@@ -1,5 +1,6 @@
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap"
@@ -21,15 +22,21 @@
               soft: '#FCFCFC',
             },
             height: {
+              '50px': '50px',
               '70px': '70px',
+              '120px': '120px',
+              '200px': '200px',
+              '250px': '250px',
               '400px': '400px',
+              '450px': '450px',
               '500px': '500px',
+              '550px': '550px',
               '600px': '600px',
               '700px': '700px',
             },
             inset: {
               '70px': '70px',
-              '20px': '20px'
+              '20px': '20px',
             },
             scale: {
               '200': '2',
@@ -57,73 +64,152 @@
   </head>
   <body class="bg-slate-300">
 
-    <!-- Menu -->
-    <nav
-        class="fixed flex rounded-md bg-white py-4 px-12 top-20px left-20px right-20px justify-between items-center text-sm z-50 scroll-menu transition-all duration-300"
-      >
-        <img src="assets/images/logo.png" style="height: 50px" />
-        <div class="flex">
-          <span class="mx-4 text-primary">Inicio</span>
-          <a href="servicios.html"><span class="mx-4">Servicios</span></a>
-          <a href="proyectos.html"><span class="mx-4">Proyectos</span></a>
-          <a href="nosotros.html"><span class="mx-4">Nosotros</span></a>
-        </div>
+    <!-- Menú de navegaci&oacute;n -->
+    <nav class="fixed flex w-full md:w-auto md:rounded-md bg-white shadow-lg py-4 px-4 xl:px-12 md:top-20px md:left-20px md:right-20px justify-between items-center text-sm z-50 scroll-menu transition-all duration-300">
+      <!-- Logo -->
+      <img src="assets/images/logo.png" class="hidden xl:inline" style="height: 50px" />
+      <img src="assets/images/icons/iso.png" class="inline xl:hidden" style="height: 50px" />
+
+      <!-- Menú de escritorio -->
+      <div class="hidden md:flex">
+        <span class="mx-4 text-primary">Inicio</span>
+        <a href="servicios.html"><span class="mx-4">Servicios</span></a>
+        <a href="proyectos.html"><span class="mx-4">Proyectos</span></a>
+        <a href="nosotros.html"><span class="mx-4">Nosotros</span></a>
+      </div>
+
+      <!-- Icono de menú para dispositivos m&oacute;viles -->
+      <div class="lg:hidden">
+        <button id="mobile-menu-button" class="block  text-gray-500 hover:text-white focus:text-white focus:outline-none">
+          <img src="assets/images/icons/menu_mobile.svg" class="h-50px w-50px">
+        </button>
+      </div>
     </nav>
+
+    <!-- Menú desplegable para dispositivos m&oacute;viles -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-white z-50 transform transition-transform ease-in-out duration-600 -translate-x-full">
+      <div class="flex flex-col items-center">
+
+        <div class="flex justify-between w-full p-4 bg-white button-shadow">
+          <img src="assets/images/logo.png" class="inline xl:hidden" style="height: 50px" />
+          <a id="close-mobile-menu" class="pointer">
+            <img src="assets/images/btn_close.svg">
+          </a>
+        </div>
+
+        <div class="w-full p-6 border-b border-primary">
+          <a class="block text-xl text-dark py-3 flex w-full" href="index.html">
+            <span class="grow text-primary">Inicio</span>
+            <img  src="assets/images/icons/right_off.svg">
+          </a>
+          <a class="block text-xl text-dark py-3 flex w-full" href="servicios.html">
+            <span class="grow">Servicios</span>
+            <img  src="assets/images/icons/right_on.svg">
+          </a>
+          <a class="block text-xl text-dark py-3 flex w-full" href="proyectos.html">
+            <span class="grow">Proyectos</span>
+            <img  src="assets/images/icons/right_on.svg">
+          </a>
+          <a class="block text-xl text-dark py-3 flex w-full" href="nosotros.html">
+            <span class="grow">Nosotros</span>
+            <img  src="assets/images/icons/right_on.svg">
+          </a>
+        </div>
+
+        <div class="w-full p-6">
+          <span class="text-2xl font-bold text-dark block text-center">Cont&aacute;ctanos</span>
+          <div class="flex w-full items-start text-dark text-lg mt-5">
+            <img src="assets/images/icons/location-pr.svg" class="mt-1" />
+            <div class="flex flex-col w-full ml-4">
+              <span>Las Begonias 441 - Piso 9</span>
+              <span>San Isidro - Lima - Per&uacute;</span>
+            </div>
+          </div>
+
+          <div class="flex w-full items-start text-dark text-lg mt-6">
+            <img src="assets/images/icons/mail-pr.svg" class="mt-1" />
+            <div class="flex flex-col w-full ml-4">
+              <a href="mailto:contacto@abraco-ing.com">contacto@abraco-ing.com</a>
+            </div>
+          </div>
+
+          <div class="flex w-full items-start text-dark text-lg mt-6">
+            <img src="assets/images/icons/linkedin-pr.svg" class="mt-1" />
+            <div class="flex flex-col w-full ml-4">
+              <a href="https://www.linkedin.com/company/abraco-ing/" target="_blank">ABRACO Ingenier&iacute;a</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="h-screen overscroll-none">
 
       <!-- Carrusel -->
-      <div class="bg-dark md:h-600px">
-  
-        <div id="indicators-carousel" class="relative w-full h-full" data-carousel="static">
+      <div class="bg-dark h-550px md:h-600px">
+        <div id="indicators-carousel" class="relative w-full h-full" data-carousel="slide">
           <!-- Carousel wrapper -->
-          <div class="relative overflow-hidden rounded-lg md:h-full">
-               <!-- Item 1 -->
-              <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                <img src="/assets/images/carousel-2.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <div class="z-50 absolute p-12 top-0 left-0 flex justify-start items-center w-full h-full">
-                  <div class="ms-8 flex flex-col text-white w-1/4">
-                    <span class="text-primary text-5xl font-bold">Tecnolog&iacute;a avanzada</span>
-                    <span class="text-xl mt-8">Aplicamos tecnolog&iacute;a de vanguardia para ofrecer soluciones r&aacute;pidas y eficientes.</span>
-                    <div>
-                      <button class="bg-primary text-white rounded-md px-10 py-2 mt-8 button-shadow flex text-sm items-center">
-                        Ver proyectos
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Item 2 -->
-              <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/assets/images/carousel-0.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <div class="z-50 absolute p-12 top-0 left-0 flex justify-end items-center w-full h-full">
-                  <div class="me-8 flex flex-col text-white w-1/4 text-end">
-                    <span class="text-primary text-5xl font-bold">Experiencia y especializaci&oacute;n</span>
-                    <span class="text-xl mt-8">La trayectoria de nuestro equipo de profesionales es la clave para dar soluciones confiables en cada proyecto.</span>
-                    <div>
-                      <button class="bg-primary text-white rounded-md px-10 py-2 mt-8 button-shadow flex text-sm items-center">
-                        Ver proyectos
-                      </button>
+          <div class="relative overflow-hidden rounded-lg h-full md:h-full">
+               
+              <!-- Item 1 -->
+              <div class="hidden duration-1000 ease-in-out" data-carousel-item="active">
+                <div class="relative w-full h-full overflow-hidden">
+                  <img src="assets/images/carousel-2.png" class="hidden lg:inline absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover">
+                  <img src="assets/images/bg_movil_1.jpg" class="inline lg:hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover">
+
+                  <div class="z-50 absolute top-0 left-0 flex justify-start items-center w-full h-full px-4 py-12 lg:px-12 lg:py-12">
+                    <div class="mx-4 w-full text-white lg:ms-4 xl:ms-20 flex flex-col md:w-1/2 lg:w-1/3 xl:w-1/4">
+                      <span class="text-center text-5xl text-primary font-bold lg:text-start">Tecnolog&iacute;a avanzada</span>
+                      <span class="text-center lg:text-start text-xl mt-8">Aplicamos tecnolog&iacute;a de vanguardia para ofrecer soluciones r&aacute;pidas y eficientes.</span>
+                      <div class="mt-8 hidden lg:block">
+                        <a class="bg-primary text-white rounded-md px-10 py-3 button-shadow text-sm items-center" href="proyectos.html">
+                          Ver proyectos
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Item 3 -->
-              <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/assets/images/carousel-1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <div class="z-50 absolute p-12 top-0 left-0 flex justify-start items-center w-full h-full">
-                  <div class="ms-8 flex flex-col text-white w-1/4">
-                    <span class="text-primary text-5xl font-bold">Servicios personalizados</span>
-                    <span class="text-xl mt-8">Cada proyecto recibe una solución a medida, adaptada a sus necesidades específicas</span>
-                    <div>
-                      <button class="bg-primary text-white rounded-md px-10 py-2 mt-8 button-shadow flex text-sm items-center">
-                        Ver proyectos
-                      </button>
+              <!-- Item 2 -->
+              <div class="hidden duration-1000 ease-in-out" data-carousel-item>
+                <div class="relative w-full h-full overflow-hidden">
+                  <img src="assets/images/carousel-0.png" class="hidden lg:inline absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover">
+                  <img src="assets/images/bg_movil_2.jpg" class="inline lg:hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover">
+
+                  <div class="z-50 absolute px-4 py-12 lg:px-12 lg:py-12 top-0 left-0 flex justify-end items-center w-full h-full">
+                    <div class="mx-4 w-full text-white lg:items-end lg:text-end xl:me-20 flex flex-col md:w-1/2 lg:w-1/3 xl:w-1/4">
+                      <span class="text-center text-5xl text-white font-bold lg:text-end lg:text-primary">Experiencia y especializaci&oacute;n</span>
+                      <span class="text-center lg:text-end text-xl mt-8">La trayectoria de nuestro equipo de profesionales es la clave para dar soluciones confiables en cada proyecto.</span>
+                      <div class="mt-8 hidden lg:block">
+                        <a class="bg-primary text-white rounded-md px-10 py-3 button-shadow text-sm items-center" href="proyectos.html">
+                          Ver proyectos
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>              
+
+              <!-- Item 3 -->
+              <div class="hidden duration-1000 ease-in-out" data-carousel-item>
+                <div class="relative w-full h-full overflow-hidden">
+                  <img src="assets/images/carousel-1.png" class="hidden lg:inline absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover">
+                  <img src="assets/images/bg_movil_3.jpg" class="inline lg:hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover">
+
+                  <div class="z-50 absolute top-0 left-0 flex justify-start items-center w-full h-full px-4 py-12 lg:px-12 lg:py-12">
+                    <div class="mx-4 w-full text-white lg:ms-4 xl:ms-20 flex flex-col md:w-1/2 lg:w-1/3 xl:w-1/4">
+                      <span class="text-center text-5xl text-primary font-bold lg:font-bold">Servicios personalizados</span>
+                      <span class="text-center lg:text-start text-xl mt-8">Cada proyecto recibe una soluci&oacute;n a medida, adaptada a sus necesidades espec&iacute;ficas</span>
+                      <div class="mt-8 hidden lg:block">
+                        <a class="bg-primary text-white rounded-md px-10 py-3 button-shadow text-sm items-center" href="proyectos.html">
+                          Ver proyectos
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>              
           </div>
           <!-- Slider indicators -->
           <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
@@ -132,100 +218,99 @@
               <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
           </div>
         </div>
-        
       </div>
   
       <!-- Titulo 1 -->
-      <div class="bg-primary-light pt-5 px-24 flex items-center justify-center">
-        <img src="/assets/images/globe.png" style="height: 200px" />
-        <div class="flex flex-col items-center justify-center -mt-6">
+      <div class="bg-primary-light pt-12 pb-12 px-10 lg:pt-5 lg:pb-5 lg:px-24 flex items-center justify-center">
+        <img class="hidden lg:inline" src="assets/images/globe.png" style="height: 200px" />
+
+        <div class="flex flex-col items-center justify-center lg:-mt-6">
           <span class="inline-block text-dark text-center">
-            <span class="text-4xl font-bold text-primary"
-              >M&aacute;s de 65</span
-            >
-            <span class="text-4xl font-bold">&nbsp; proyectos de </span>
-            <span class="text-4xl font-bold text-primary"
+            <span class="text-5xl font-bold lg:text-4xl text-primary"
+              >M&aacute;s de 65 </span>
+            <span class="text-5xl font-bold lg:text-4xl">&nbsp; proyectos de </span>
+            <span class="text-5xl font-bold lg:text-4xl text-primary"
               >&nbsp; ingenier&iacute;a
             </span>
-            <span class="text-4xl font-bold"
-              >&nbsp; en Am&eacute;rica Latina y el Caribe</span
+            <span class="text-5xl font-bold lg:text-4xl"
+              >&nbsp;en Am&eacute;rica Latina y el Caribe</span
             >
           </span>
   
-          <div class="flex items-center justify-center mt-6">
+          <div class="flex flex-wrap items-center justify-center mt-6 mx-4 lg:mx-0">
             <img
               src="/assets/images/flags/Banderas-0.png"
-              class="mx-1"
+              class="m-1"
               style="height: 16px"
             />
             <img
               src="/assets/images/flags/Banderas-1.png"
-              class="mx-1"
+              class="m-1"
               style="height: 16px"
             />
             <img
               src="/assets/images/flags/Banderas-2.png"
-              class="mx-1"
+              class="m-1"
               style="height: 16px"
             />
             <img
               src="/assets/images/flags/Banderas-3.png"
-              class="mx-1"
+              class="m-1"
               style="height: 16px"
             />
             <img
               src="/assets/images/flags/Banderas-4.png"
-              class="mx-1"
+              class="m-1"
               style="height: 16px"
             />
             <img
               src="/assets/images/flags/Banderas-5.png"
-              class="mx-1"
+              class="m-1"
               style="height: 16px"
             />
             <img
               src="/assets/images/flags/Banderas-6.png"
-              class="mx-1"
+              class="m-1"
               style="height: 16px"
             />
             <img
               src="/assets/images/flags/Banderas-7.png"
-              class="mx-1"
+              class="m-1"
               style="height: 16px"
             />
             <img
               src="/assets/images/flags/Banderas-8.png"
-              class="mx-1"
+              class="m-1"
               style="height: 16px"
             />
             <img
               src="/assets/images/flags/Banderas-9.png"
-              class="mx-1"
+              class="m-1"
               style="height: 16px"
             />
             <img
               src="/assets/images/flags/Banderas-10.png"
-              class="mx-1"
+              class="m-1"
               style="height: 16px"
             />
             <img
               src="/assets/images/flags/Banderas-11.png"
-              class="mx-1"
+              class="m-1"
               style="height: 16px"
             />
             <img
               src="/assets/images/flags/Banderas-12.png"
-              class="mx-1"
+              class="m-1"
               style="height: 16px"
             />
             <img
               src="/assets/images/flags/Banderas-13.png"
-              class="mx-1"
+              class="m-1"
               style="height: 16px"
             />
             <img
               src="/assets/images/flags/Banderas-14.png"
-              class="mx-1"
+              class="m-1"
               style="height: 16px"
             />
           </div>
@@ -233,60 +318,61 @@
       </div>
   
       <!-- Nuestros servicios -->
-      <div class="bg-white pt-12 pb-4 px-12 flex items-center justify-center flex">
+      <div class="bg-white pt-12 pb-4 px-4 lg:px-12 flex flex-col lg:flex-row items-center justify-center">
   
-        <div class="flex flex-col items-start mr-24">
-            <span class="text-4xl text-primary font-bold">
+        <div class="flex flex-col w-full items-center justify-center mr-0 lg:w-auto lg:items-start lg:mr-24">
+            <span class="text-5xl text-center lg:text-start lg:text-4xl text-primary font-bold">
                 Nuestros servicios
             </span>
-            <span class="mt-6 font-ligth">
+            <span class="mt-6 font-ligth text-xl lg:text-base lg:text-start text-center">
                 Soluciones para cada fase del ciclo de proyecto
             </span>
-            <button class="bg-primary text-white rounded-md px-5 py-2 mt-8 button-shadow flex text-sm items-center">
-                Ver más 
-                <img src="/assets/images/icons/arrow-right.svg" class="ms-4" style="height: 18px"></img>
-            </button>
+            <a class="bg-primary text-white rounded-md px-5 py-2 flex mb-8 mt-8 lg:mb-0 button-shadow text-xl lg:text-sm items-center" href="servicios.html">
+                Ver m&aacute;s 
+              <img src="assets/images/icons/arrow-right.svg" class="ms-4" style="height: 18px"></img>
+            </a>
         </div>
   
           <img
           src="/assets/images//nuestros_servicios_1.png"
-          class="mx-1"
-          style="height: 250px"
+          class="m-1 h-200px lg:h-250px"
           />
       </div>
   
       <!-- Aliados -->
-      <div class="bg-soft pt-10 px-24 flex flex-col items-center justify-center">
-          <span class="font-bold text-2xl tracking-wide">Somos aliados estrat&eacute;gicos</span>
-          <span class="font-bold text-2xl tracking-wide">en cada fase del ciclo de proyecto</span>
+      <div class="px-12 xl:px-24 bg-soft pt-10 flex flex-col items-center justify-center">
+          <span class="font-bold text-3xl text-center lg:text-2xl tracking-wide">Somos aliados estrat&eacute;gicos</span>
+          <span class="font-bold text-3xl text-center lg:text-2xl tracking-wide">en cada fase del ciclo de proyecto</span>
 
-          <div class="flex justify-between w-full mt-8">
+          <div class="justify-between w-full mt-8 hidden lg:flex">
 
             <!-- Planificacion -->
-            <a href="javascript:void(0)" class="w-1/5 flex flex-col items-center justify-center z-40 item">
-                <img style="height: 70px" src="/assets/images/semi-icons/plan.png">
-                <span class="text-lg text-primary mt-3">Planificaci&oacute;n</span>
+            <a href="servicios.html?serv=plan" class="w-1/5 flex flex-col items-center justify-center z-40 item transition-all duration-300" data="plan">
+                <div class="bg-white p-3 rounded-md shadow-lg plan-img">
+                  <img class="h-50px xl:h-70px" src="/assets/images/semi-icons/plan.png">
+                </div>
+                <span class="text-lg text-primary mt-3 transition-all duration-600 plan-tit">Planificaci&oacute;n</span>
                 
                 <div class="flex items-center justify-center relative w-full mt-4">
                   <span class="absolute border-t-2 w-1/2 right-0 border-primary"></span>
                   <div class="relative rounded-full p-2 bg-soft flex items-center justify-center">
                     <span class="rounded-full inline-block bg-primary z-10" style="height: 20px; width: 20px;"></span>
-                    <div class="absolute inset-0 rounded-full border border-primary transition-transform duration-300 hover:scale-150 bg-white"></div>
+                    <div class="absolute inset-0 rounded-full border border-primary transition-transform duration-900 bg-white plan-bull"></div>
                   </div>
                 </div>
 
-                <div class="w-full mt-6 px-10">
+                <div class="w-full mt-6 px-4 xl:px-10">
                   <div class="bg-soft w-full">
                     
                     <div class="rounded-md my-2 w-full">
-                      <div class="border-y bg-white px-2 leading-5 flex items-center justify-center h-70px">
-                        <span class="text-center">Inventarios</span>
+                      <div class="border-y bg-white px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px  plan-but">
+                        <span class="text-center md:text-sm">Inventarios</span>
                       </div>
                     </div>
 
                     <div class="rounded-md mt-10 w-full">
-                      <div class="border-y bg-white px-2 leading-5 flex items-center justify-center h-70px">
-                        <span class="text-center">Planes de Obra</span>
+                      <div class="border-y bg-white px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px  plan-but">
+                        <span class="text-center md:text-sm">Planes de Obra</span>
                       </div>
                     </div>
 
@@ -295,63 +381,66 @@
             </a>
              
             <!-- Pre inversion -->
-            <a href="javascript:void(0)" class="w-1/5 flex flex-col items-center justify-center z-40 item">
-              <img style="height: 70px" src="/assets/images/semi-icons/pre.png">
-              <span class="text-lg text-primary mt-3">Preinversi&oacute;n</span>
+            <a href="servicios.html?serv=pre" class="w-1/5 flex flex-col items-center justify-center z-40 item transition-all duration-300" data="pre">
+              <div class="bg-white p-3 rounded-md shadow-lg pre-img">
+                <img class="h-50px xl:h-70px" src="/assets/images/semi-icons/pre.png">
+              </div>
+              <span class="text-lg text-primary mt-3 transition-all duration-600 pre-tit">Preinversi&oacute;n</span>
               
               <div class="flex items-center justify-center relative w-full mt-4">
                 <span class="absolute border-t-2 w-full right-0 border-primary"></span>
                 <div class="relative rounded-full p-2 bg-soft flex items-center justify-center">
                   <span class="rounded-full inline-block bg-primary z-10" style="height: 20px; width: 20px;"></span>
-                  <div class="absolute inset-0 rounded-full border border-primary transition-transform duration-300 hover:scale-150 bg-white"></div>
+                  <div class="absolute inset-0 rounded-full border border-primary transition-transform duration-900 bg-white pre-bull"></div>
                 </div>
               </div>
 
-              <div class="w-full mt-6 px-10">
+              <div class="w-full mt-6 px-4 xl:px-10">
                 <div class="bg-soft w-full">
                   
                   <div class="rounded-md my-2 w-full">
-                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center h-70px">
-                      <span class="text-center">Estudios de preinversi&oacute;n</span>
+                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px  pre-but">
+                      <span class="text-center md:text-sm">Estudios de preinversi&oacute;n</span>
                     </div>
                   </div>
 
                   <div class="rounded-md mt-10 w-full">
-                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center h-70px">
-                      <span class="text-center">Factibilidad de concesiones </span>
+                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px  pre-but">
+                      <span class="text-center md:text-sm">Factibilidad de concesiones </span>
                     </div>
                   </div>
 
                 </div>
               </div>
             </a>
-          
               
             <!-- Diseño -->
-            <a href="javascript:void(0)" class="w-1/5 flex flex-col items-center justify-center z-40 item">
-              <img style="height: 70px" src="/assets/images/semi-icons/dis.png">
-              <span class="text-lg text-primary mt-3">Dise&ntilde;o</span>
+            <a href="servicios.html?serv=dis" class="w-1/5 flex flex-col items-center justify-center z-40 item transition-all duration-300" data="dis">
+              <div class="bg-white p-3 rounded-md shadow-lg dis-img">
+                <img class="h-50px xl:h-70px" src="/assets/images/semi-icons/dis.png">
+              </div>
+              <span class="text-lg text-primary mt-3 transition-all duration-600 dis-tit">Dise&ntilde;o</span>
               
               <div class="flex items-center justify-center relative w-full mt-4">
                 <span class="absolute border-t-2 w-full right-0 border-primary"></span>
                 <div class="relative rounded-full p-2 bg-soft flex items-center justify-center">
                   <span class="rounded-full inline-block bg-primary z-10" style="height: 20px; width: 20px;"></span>
-                  <div class="absolute inset-0 rounded-full border border-primary transition-transform duration-300 hover:scale-150 bg-white"></div>
+                  <div class="absolute inset-0 rounded-full border border-primary transition-transform duration-900 bg-white dis-bull"></div>
                 </div>
               </div>
 
-              <div class="w-full mt-6 px-10">
+              <div class="w-full mt-6 px-4 xl:px-10">
                 <div class="bg-soft w-full">
                   
                   <div class="rounded-md my-2 w-full">
-                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center h-70px">
-                      <span class="text-center">Dise&ntilde;o de proyectos de ingenier&iacute;a</span>
+                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px  dis-but">
+                      <span class="text-center md:text-sm">Dise&ntilde;o de proyectos de ingenier&iacute;a</span>
                     </div>
                   </div>
 
                   <div class="rounded-md mt-10 w-full">
-                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center h-70px">
-                      <span class="text-center">Asistencia t&eacute;cnica</span>
+                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px  dis-but">
+                      <span class="text-center md:text-sm">Asistencia t&eacute;cnica</span>
                     </div>
                   </div>
 
@@ -360,30 +449,32 @@
             </a>
 
             <!-- Ejecucion -->
-            <a href="javascript:void(0)" class="w-1/5 flex flex-col items-center justify-center z-40 item">
-              <img style="height: 70px" src="/assets/images/semi-icons/eje.png">
-              <span class="text-lg text-primary mt-3">Ejecuci&oacute;n</span>
+            <a href="servicios.html?serv=eje" class="w-1/5 flex flex-col items-center justify-center z-40 item transition-all duration-300" data="eje">
+              <div class="bg-white p-3 rounded-md shadow-lg eje-img">
+                <img class="h-50px xl:h-70px" src="/assets/images/semi-icons/eje.png">
+              </div>
+              <span class="text-lg text-primary mt-3 transition-all duration-600 eje-tit">Ejecuci&oacute;n</span>
               
               <div class="flex items-center justify-center relative w-full mt-4">
                 <span class="absolute border-t-2 w-full right-0 border-primary"></span>
                 <div class="relative rounded-full p-2 bg-soft flex items-center justify-center">
                   <span class="rounded-full inline-block bg-primary z-10" style="height: 20px; width: 20px;"></span>
-                  <div class="absolute inset-0 rounded-full border border-primary transition-transform duration-300 hover:scale-150 bg-white"></div>
+                  <div class="absolute inset-0 rounded-full border border-primary transition-transform duration-900 bg-white eje-bull"></div>
                 </div>
               </div>
 
-              <div class="w-full mt-6 px-10">
+              <div class="w-full mt-6 px-4 xl:px-10">
                 <div class="bg-soft w-full">
                   
                   <div class="rounded-md my-2 w-full">
-                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center h-70px">
-                      <span class="text-center">Supervisión de obra</span>
+                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px  eje-but">
+                      <span class="text-center md:text-sm">Supervisi&oacute;n de obra</span>
                     </div>
                   </div>
 
                   <div class="rounded-md mt-10 w-full">
-                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center h-70px">
-                      <span class="text-center">Aplicaciones para el seguimiento</span>
+                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px  eje-but">
+                      <span class="text-center md:text-sm">Aplicaciones para el seguimiento</span>
                     </div>
                   </div>
 
@@ -392,30 +483,32 @@
             </a>
 
             <!-- Operacion -->
-            <a href="javascript:void(0)" class="w-1/5 flex flex-col items-center justify-center z-40 item">
-              <img style="height: 70px" src="/assets/images/semi-icons/ope.png">
-              <span class="text-lg text-primary mt-3">Operaci&oacute;n</span>
+            <a href="servicios.html?serv=ope" class="w-1/5 flex flex-col items-center justify-center z-40 item transition-all duration-300" data="ope">
+              <div class="bg-white p-3 rounded-md shadow-lg ope-img">
+                <img class="h-50px xl:h-70px" src="/assets/images/semi-icons/ope.png">
+              </div>
+              <span class="text-lg text-primary mt-3 transition-all duration-600 ope-tit">Operaci&oacute;n</span>
               
               <div class="flex items-center justify-center relative w-full mt-4">
                 <span class="absolute border-t-2 w-1/2 left-0 border-primary"></span>
                 <div class="relative rounded-full p-2 bg-soft flex items-center justify-center">
                   <span class="rounded-full inline-block bg-primary z-10" style="height: 20px; width: 20px;"></span>
-                  <div class="absolute inset-0 rounded-full border border-primary transition-transform duration-300 hover:scale-150 bg-white"></div>
+                  <div class="absolute inset-0 rounded-full border border-primary transition-transform duration-900 bg-white ope-bull"></div>
                 </div>
               </div>
 
-              <div class="w-full mt-6 px-10">
+              <div class="w-full mt-6 px-4 xl:px-10">
                 <div class="bg-soft w-full">
                   
                   <div class="rounded-md my-2 w-full">
-                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center h-70px">
-                      <span class="text-center">Relevamiento de los niveles de servicio</span>
+                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px  ope-but">
+                      <span class="text-center md:text-sm">Relevamiento de los niveles de servicio</span>
                     </div>
                   </div>
 
                   <div class="rounded-md mt-10 w-full">
-                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center h-70px">
-                      <span class="text-center">Aplicaciones de gesti&oacute;</span>
+                    <div class="border-y bg-white px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px  ope-but">
+                      <span class="text-center md:text-sm">Aplicaciones de gesti&oacute;n</span>
                     </div>
                   </div>
 
@@ -425,68 +518,240 @@
 
           </div>
 
-          <div class="flex justify-between w-full mt-6">
+          <div class="flex justify-between w-full mt-8 lg:hidden">
+            
+            <div id="controls-carousel" class="relative w-full" data-carousel="static">
+              <!-- Carousel wrapper -->
+              <div class="relative h-450px overflow-hidden rounded-lg">
+
+                  <!-- Planificacion -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                    <a href="servicios.html?serv=plan" class="w-full flex flex-col items-center justify-center z-40 item transition-all duration-300" data="plan">
+                      <div class="bg-primary p-3 rounded-md shadow-lg plan-img">
+                        <img class="h-70px" src="/assets/images/semi-icons/plan.png">
+                      </div>
+                      <span class="text-xl text-primary m-5 font-bold transition-all duration-600 plan-tit">Planificaci&oacute;n</span>
+                      
+                      <div class="flex items-center justify-center relative w-full">
+                        <div class="relative rounded-full p-6 bg-soft flex items-center justify-center">
+                          <span class="rounded-full inline-block bg-primary z-10" style="height: 20px; width: 20px;"></span>
+                          <div class="absolute inset-0 rounded-full border border-dark bg-white"></div>
+                        </div>
+                      </div>
+      
+                      <div class="w-full mt-4 px-4 xl:px-10">
+                        <div class="bg-soft w-full">
+                          
+                          <div class="button-shadow border rounded-lg bg-primary px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px">
+                            <span class="text-center font-bold text-xl">Inventarios</span>
+                          </div>
+
+                          <div class="button-shadow border rounded-lg bg-primary px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px mt-6">
+                            <span class="text-center font-bold text-xl">Planes de Obra</span>
+                          </div>
+      
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!-- pre inversion -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <a href="servicios.html?serv=pre" class="w-full flex flex-col items-center justify-center z-40 item transition-all duration-300" data="plan">
+                      <div class="bg-primary p-3 rounded-md shadow-lg plan-img">
+                        <img class="h-70px" src="/assets/images/semi-icons/pre.png">
+                      </div>
+                      <span class="text-xl text-primary m-5 font-bold transition-all duration-600 plan-tit">Preinversi&oacute;n</span>
+                      
+                      <div class="flex items-center justify-center relative w-full">
+                        <div class="relative rounded-full p-6 bg-soft flex items-center justify-center">
+                          <span class="rounded-full inline-block bg-primary z-10" style="height: 20px; width: 20px;"></span>
+                          <div class="absolute inset-0 rounded-full border border-dark bg-white"></div>
+                        </div>
+                      </div>
+      
+                      <div class="w-full mt-4 px-4 xl:px-10">
+                        <div class="bg-soft w-full">
+                          
+                          <div class="button-shadow border rounded-lg bg-primary px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px">
+                            <span class="text-center font-bold text-xl">Estudios de preinversi&oacute;n</span>
+                          </div>
+
+                          <div class="button-shadow border rounded-lg bg-primary px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px mt-6">
+                            <span class="text-center font-bold text-xl">Factibilidad de concesiones</span>
+                          </div>
+      
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!-- Disenio -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <a href="servicios.html?serv=dis" class="w-full flex flex-col items-center justify-center z-40 item transition-all duration-300">
+                      <div class="bg-primary p-3 rounded-md shadow-lg plan-img">
+                        <img class="h-70px" src="/assets/images/semi-icons/dis.png">
+                      </div>
+                      <span class="text-xl text-primary m-5 font-bold transition-all duration-600">Dise&ntilde;o</span>
+                      
+                      <div class="flex items-center justify-center relative w-full">
+                        <div class="relative rounded-full p-6 bg-soft flex items-center justify-center">
+                          <span class="rounded-full inline-block bg-primary z-10" style="height: 20px; width: 20px;"></span>
+                          <div class="absolute inset-0 rounded-full border border-dark bg-white"></div>
+                        </div>
+                      </div>
+      
+                      <div class="w-full mt-4 px-4 xl:px-10">
+                        <div class="bg-soft w-full">
+                          <div class="button-shadow border rounded-lg bg-primary px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px">
+                            <span class="text-center font-bold text-xl">Dise&ntilde;o de proyectos de ingenier&iacute;a</span>
+                          </div>
+
+                          <div class="button-shadow border rounded-lg bg-primary px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px mt-6">
+                            <span class="text-center font-bold text-xl">Asistencia t&eacute;cnica</span>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  
+                  <!-- Ejecucion -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <a href="servicios.html?serv=eje" class="w-full flex flex-col items-center justify-center z-40 item transition-all duration-300">
+                      <div class="bg-primary p-3 rounded-md shadow-lg plan-img">
+                        <img class="h-70px" src="/assets/images/semi-icons/eje.png">
+                      </div>
+                      <span class="text-xl text-primary m-5 font-bold transition-all duration-600">Ejecuci&oacute;n</span>
+                      
+                      <div class="flex items-center justify-center relative w-full">
+                        <div class="relative rounded-full p-6 bg-soft flex items-center justify-center">
+                          <span class="rounded-full inline-block bg-primary z-10" style="height: 20px; width: 20px;"></span>
+                          <div class="absolute inset-0 rounded-full border border-dark bg-white"></div>
+                        </div>
+                      </div>
+      
+                      <div class="w-full mt-4 px-4 xl:px-10">
+                        <div class="bg-soft w-full">
+                          <div class="button-shadow border rounded-lg bg-primary px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px">
+                            <span class="text-center font-bold text-xl">Supervisi&oacute;n de obra</span>
+                          </div>
+
+                          <div class="button-shadow border rounded-lg bg-primary px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px mt-6">
+                            <span class="text-center font-bold text-xl">Aplicaciones para el seguimiento</span>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  
+                  <!-- Operacion -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <a href="servicios.html?serv=ope" class="w-full flex flex-col items-center justify-center z-40 item transition-all duration-300">
+                      <div class="bg-primary p-3 rounded-md shadow-lg plan-img">
+                        <img class="h-70px" src="/assets/images/semi-icons/ope.png">
+                      </div>
+                      <span class="text-xl text-primary m-5 font-bold transition-all duration-600">Operaci&oacute;n</span>
+                      
+                      <div class="flex items-center justify-center relative w-full">
+                        <div class="relative rounded-full p-6 bg-soft flex items-center justify-center">
+                          <span class="rounded-full inline-block bg-primary z-10" style="height: 20px; width: 20px;"></span>
+                          <div class="absolute inset-0 rounded-full border border-dark bg-white"></div>
+                        </div>
+                      </div>
+      
+                      <div class="w-full mt-4 px-4 xl:px-10">
+                        <div class="bg-soft w-full">
+                          <div class="button-shadow border rounded-lg bg-primary px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px">
+                            <span class="text-center font-bold text-xl">Relevamiento de los niveles de servicio</span>
+                          </div>
+
+                          <div class="button-shadow border rounded-lg bg-primary px-2 leading-5 flex items-center justify-center transition-all duration-400 h-70px mt-6">
+                            <span class="text-center font-bold text-xl">Aplicaciones de gesti&oacute;n</span>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  
+
+
+              </div>
+              <!-- Slider controls -->
+              <button type="button" class="absolute top-0 -start-4 z-30 flex items-center justify-center h-full cursor-pointer group focus:outline-none" data-carousel-prev>
+                  <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-dark/30 dark:bg-gray-800/30 group-hover:bg-dark/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                      <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                      </svg>
+                      <span class="sr-only">Previous</span>
+                  </span>
+              </button>
+              <button type="button" class="absolute top-0 -end-4 z-30 flex items-center justify-center h-full cursor-pointer group focus:outline-none" data-carousel-next>
+                  <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-dark/30 dark:bg-gray-800/30 group-hover:bg-dark/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                      <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                      </svg>
+                      <span class="sr-only">Next</span>
+                  </span>
+              </button>
+            </div>
+
           </div>
+          
       </div>
   
       <!-- Contactanos -->
-      <div class="bg-light px-24 flex flex-col w-full items-center justify-center">
-        
-        <div class="border-t-2 border-primary rounded-md p-12 bg-white flex items-center justify-center w-full">
+      <div class="px-4 lg:px-12 xl:px-24 bg-light pt-8 button-shadow">
+        <div class="flex flex-col w-full px-0 xl:px-24 items-center justify-center">
+          <div class="border-t-2 border-primary rounded-md p-6 px-0 lg:px-12 lg:p-12 bg-white flex items-center justify-center w-full">
+            
+            <div class="flex flex-col items-center justify-center w-full xl:w-5/6 lg:flex-row">
+              <div class="p-4 lg:p-4 xl:p-12">
+                <div class="flex flex-col justify-center items-center">
+                  <span class="text-xl font-bold text-dark">Cont&aacute;ctanos</span>
+                  <div class="flex w-full items-start text-dark text-lg mt-10">
+                    <img src="assets/images/icons/location-pr.svg" class="mt-1" />
+                    <div class="flex flex-col w-full ml-4">
+                      <span>Las Begonias 441 - Piso 9</span>
+                      <span>San Isidro - Lima - Per&uacute;</span>
+                    </div>
+                  </div>
 
-          <div class="flex items-center justify-center w-4/6">
-  
-            <div class="p-12">
+                  <div class="flex w-full items-start text-dark text-lg mt-6">
+                    <img src="assets/images/icons/mail-pr.svg" class="mt-1" />
+                    <div class="flex flex-col w-full ml-4">
+                      <a href="mailto:contacto@abraco-ing.com">contacto@abraco-ing.com</a>
+                    </div>
+                  </div>
 
-              <div class="flex flex-col justify-center items-center">
-                
-                <span class="text-2xl font-bold text-dark">Cont&aacute;ctanos</span>
-                <div class="flex w-full items-start text-dark text-lg mt-10">
-                  <img src="assets/images/icons/location-pr.svg" class="mt-1">
-                  <div class="flex flex-col w-full ml-4">
-                    <span>Las Begonias 441 - Piso 9</span>
-                    <span>San Isidro - Lima - Per&uacute;</span>
+                  <div class="flex w-full items-start text-dark text-lg mt-6">
+                    <img src="assets/images/icons/linkedin-pr.svg" class="mt-1" />
+                    <div class="flex flex-col w-full ml-4">
+                      <a href="https://www.linkedin.com/company/abraco-ing/" target="_blank">ABRACO Ingenier&iacute;a</a>
+                    </div>
                   </div>
+
+                  <img src="assets/images/logo.png" class="my-10 h-70px lg:h-50px"/>
                 </div>
-    
-                <div class="flex w-full items-start text-dark text-lg mt-6">
-                  <img src="assets/images/icons/mail-pr.svg" class="mt-1">
-                  <div class="flex flex-col w-full ml-4">
-                    <a href="mailto:contacto@abraco-ing.com">contacto@abraco-ing.com</a>
-                  </div>
-                </div>
-    
-                <div class="flex w-full items-start text-dark text-lg mt-6">
-                  <img src="assets/images/icons/linkedin-pr.svg" class="mt-1">
-                  <div class="flex flex-col w-full ml-4">
-                    <a href="mailto:contacto@abraco-ing.com">ABRACO Ingeniería</a>
-                  </div>
-                </div>
-  
-                <img src="assets/images/logo.png" class="mt-10" style="height: 50px" />
               </div>
-  
-            </div>
-  
-            <div class="grow p-12">
-              <div class="button-shadow">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984.7414931551073!2d-77.02526268836435!3d-12.092181376826098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c864f0fec401%3A0xbe840942ec3d3dc2!2sC.%20Las%20Begonias%20445%2C%20San%20Isidro%2015046!5e0!3m2!1ses-419!2spe!4v1711340082831!5m2!1ses-419!2spe" 
-                    height="450" 
-                    style="border:0; width: 100%;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+              <div class="lg:grow lg:w-auto m-0 lg:m-8 md:m-4 button-shadow w-full">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.280789146565!2d-77.02673612387625!3d-12.09291988814753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c864f07ff80d%3A0x126025ead9936d22!2sC.%20Las%20Begonias%20441%2C%20San%20Isidro%2015046!5e0!3m2!1ses-419!2spe!4v1711947447792!5m2!1ses-419!2spe" 
+                  height="450"
+                  style="border: 0; width: 100%"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     
 
       <!-- Footer -->
-      <div class="bg-light px-24 flex flex-col w-full items-center justify-center py-8 text-slate-500">
-        &copy; ABRACO Ingenier&iacute;a  | Todos los derechos reservados.
+      <div class="bg-light px-24 flex flex-col w-full text-center items-center justify-center py-8 text-slate-500">
+        &copy; ABRACO Ingenier&iacute;a  <br> Todos los derechos reservados.
       </div>
 
     </div>
@@ -494,18 +759,78 @@
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <script>
-    const menuElement = document.querySelector('.scroll-menu');
-
+      const menuElement = document.querySelector('.scroll-menu');
       window.addEventListener('scroll', function() {
       if (window.scrollY > 0) {
-        menuElement.classList.remove( 'rounded-md', 'top-20px', 'left-20px', 'right-20px' );
-        menuElement.classList.add( 'top-0', 'left-0', 'right-0', 'rounded-none', 'button-shadow' );
+        menuElement.classList.remove( 'xl:rounded-md', 'xl:top-20px', 'xl:left-20px', 'xl:right-20px' );
+        menuElement.classList.add( 'xl:top-0', 'xl:left-0', 'xl:right-0', 'xl:rounded-none', 'xl:button-shadow' );
       } else {
-        menuElement.classList.add( 'rounded-md', 'top-20px', 'left-20px', 'right-20px' );
-        menuElement.classList.remove( 'top-0', 'left-0', 'right-0', 'rounded-none', 'button-shadow' );
+        menuElement.classList.add( 'xl:rounded-md', 'xl:top-20px', 'xl:left-20px', 'xl:right-20px' );
+        menuElement.classList.remove( 'xl:top-0', 'xl:left-0', 'xl:right-0', 'xl:rounded-none', 'xl:button-shadow' );
       }
     });
+  
+    // Mobile button
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('-translate-x-full');
+    });
+
+    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+    closeMobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.add('-translate-x-full');
+    });
+
+
+    
+    $(()=>{
+
+      $(".item").hover( 
+        function(){
+          const image = `.${ $(this).attr('data') }-img`;
+          const titulo = `.${ $(this).attr('data') }-tit`;
+          const button = `.${ $(this).attr('data') }-but`;
+          const bullet = `.${ $(this).attr('data') }-bull`;
+          
+          $(image).removeClass("bg-white");
+          $(image).addClass("bg-primary scale-110 -translate-y-2.5");
+          
+          $(titulo).removeClass("text-primary");
+          $(titulo).addClass("text-black scale-110 -translate-y-2");
+          
+          $(button).removeClass("bg-white");
+          $(button).addClass("bg-primary shadow-lg translate-y-2");
+          
+          $(bullet).removeClass("border-primary");
+          $(bullet).addClass("border-dark scale-150");
+          
+        },
+        function(){
+          const image = `.${ $(this).attr('data') }-img`;
+          const titulo = `.${ $(this).attr('data') }-tit`;
+          const button = `.${ $(this).attr('data') }-but`;
+          const bullet = `.${ $(this).attr('data') }-bull`;
+
+          $(image).addClass("bg-white");
+          $(image).removeClass("bg-primary scale-110 -translate-y-2.5");
+
+          $(titulo).addClass("text-primary");
+          $(titulo).removeClass("text-black scale-110 -translate-y-2");
+
+          $(button).addClass("bg-white");
+          $(button).removeClass("bg-primary shadow-lg translate-y-2");
+
+          $(bullet).addClass("border-primary");
+          $(bullet).removeClass("border-dark scale-150");
+        });
+    })
+
   </script>
 </html>
